@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+{% load staticfiles %}
+<html lang="en">
+<head>
+    <!--BOOTSTRAP-->
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
+    <link href="//fonts.googleapis.com/css?family=Lobster&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    
+    <title>AppFat</title>
+</head>
+<body>
+<div class="page-header">
+    <h1><a href="/"> AppFat Taubaté</a></h1>
+</div>
+    <h2> Olá, Denny Erikson</h2>
+
+
+<!--table-->
+<br>
+
+<dir>
+    <div class="row">
+        <div class="col-md-11">            
+            
+            <br>
+                <div class="panel panel-primary">
+
+                    <div class="panel-heading">Informativos</div>
+
+                    <!--tabela-->
+                    <table class="table">
+                        <tr>
+                            <th>Nº</th>
+                            <th>Disciplina</th>                
+                            <th>Sala</th>
+                        </tr>
+                        {% for posts in post %}
+                        <tr>                          
+            
+                            <td>{{posts.id}}</td>
+                            <td>{{posts.title}}</td>
+                            <td>{{ posts.text }}</td>
+                            
+                        </tr>
+                        {% endfor %}
+                    </table>
+                    
+                </div>   
+            <!-- </br> -->
+        </div>
+    </div>
+    
+</dir>
+
+</body>
+</html>
