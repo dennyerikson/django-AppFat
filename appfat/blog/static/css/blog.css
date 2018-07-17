@@ -16,3 +16,20 @@ body{
 h1, h2, h3, h4 {
     font-family: 'Lobster', cursive;
 }
+
+#rodape {
+    background-color: #00BFFF;
+    text-align: center;
+    font-size:20pt;
+    font-family: Verdana;
+    font-weight:bold;
+    width:100%;
+    position:fixed;
+    bottom:0px;
+    left:0px;
+} 
+
+footer{
+
+    clear: both;
+}
