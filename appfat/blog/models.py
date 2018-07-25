@@ -18,7 +18,7 @@ class Post(models.Model):
     text1 = models.TextField()
     text2 = models.TextField()
     text3 = models.TextField()
-    texto4 = models.TextField()
+    # texto4 = models.TextField()
     
     created_date = models.DateTimeField(
         default = timezone.now)
@@ -33,4 +33,4 @@ class Post(models.Model):
     def __str__(self):
         return self.title
 
-
+    
