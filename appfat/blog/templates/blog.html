@@ -1,167 +1,183 @@
 <!DOCTYPE html>
-{% load staticfiles %}
 <html lang="en">
-<head>
-    <!--BOOTSTRAP-->
-    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
-    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
-    <link href="//fonts.googleapis.com/css?family=Lobster&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+    {% load staticfiles %}
+    <head>
+        <!--BOOTSTRAP-->
+        <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+        <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
+        <link href="//fonts.googleapis.com/css?family=Lobster&subset=latin,latin-ext" rel="stylesheet" type="text/css">
 
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    
-    <title>AppFat</title>
-</head>
-<body>
-<div class="page-header">
-    <h1><a href="/"> AppFat Taubaté</a></h1>
-</div>
-    <h2>Olá, denny erikson </h2>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+        <link rel="stylesheet" href="{% static 'css/blog.css' %}">
+
+        <!-- <a href="https://icons8.com">Icon pack by Icons8</a> -->
+
+        <title>AppFat</title>
+    </head>
+    <body>
+    <div class="page-header">
+        <h1><a href="/"> AppFat Taubaté</a></h1>
+    </div>
+
+    <div class="page-header2">
+        <h1> Olá, Denny Erikson</h1>
+    </div>
+
+    <!--table-->
+    <br>
+
+    <dir>
+        <div class="content">
+            <div class="row">
+                <div class="col-md-7">
+
+                    <br>
+                        <div class="panel panel-primary">
+
+                            <div class="panel-heading">Atenção</div>
+
+                           <!-- <div class="table-responsive"> -->
+                                <!--tabela-->
+                            <table class="table">
+                                <tr>
+                                    <h1> <a> <td>Prouni</td> </a></h1>
+                                    <h1> <a> <td>Se deixar de trazer os documentos no prazo determinado poderá correr o risco de perder
+                                            a bolsa.</td> </a></h1>
+                                </tr>
+                                <tr>
+                                        <h1> <a> <td>Ajuste</td>   </a></h1>
+                                        <h1> <a> <td>Se deixar de realizar o ajuste de horário poderá impactar no funcionamento do seu portal,
+                                                Ava ou problemas acadêmicos em geral.</td>   </a></h1>
+                                </tr>
+                                <tr>
+                                        <h1> <a> <td>Carteirinha</td> </a></h1>
+                                        <h1> <a> <td>Ok</td> </a></h1>
+                                </tr>
+
+                                <tr>
+                                        <h1> <a> <td>Rematricula</td> </a></h1>
+                                        <h1> <a> <td>Caso deixe de realizar a rematricula no periodo do ciclo letivo, poderá impactar no
+                                                funcionamento do seu portal, como Ava ou problemas acadêmicos em geral.
+                                                </td> </a></h1>
+                                </tr>
+
+                                <tr>
+                                        <h1> <a> <td>Boleto</td> </a></h1>
+                                        <h1> <a> <td>Caso esteja com boletos em aberto, poderá impactar nos seus estudos gerando multas
+                                                e bloqueio no seu portal, como Ava ou problemas acadêmicos em geral.
+                                                </td> </a></h1>
+                                </tr>
 
 
-<!--table-->
-<br>
+                            </table>
+                           <!-- </div> -->
 
-<dir>
+                        </div>
+                    <!-- </br> -->
+                </div>
+            </div>
+            </div>
+        </dir>
+
+    <dir>
+        <div class="content">
         <div class="row">
-            <div class="col-md-11">            
-                
+            <div class="col-md-7">
+
                 <br>
                     <div class="panel panel-primary">
-    
-                        <div class="panel-heading">Atenção</div>
-    
-                       <!-- <div class="table-responsive"> -->
+
+                        <div class="panel-heading">Informativos | Análise de Desenvolvimento de Sistemas</div>
+
+                       <div class="table-responsive">
                             <!--tabela-->
                         <table class="table">
                             <tr>
-                                <h1> <a> <td>Prouni</td> </a></h1>
-                                <h1> <a> <td>Se deixar de trazer os documentos no prazo determinado poderá correr o risco de perder
-                                        a bolsa.</td> </a></h1>
+                                <h1> <a> <th>Nº</th> </a></h1>
+                                <h1> <a> <th>Disciplina</th>   </a></h1>
+                                <h1> <a> <th>Status</th> </a></h1>
+                                <h1> <a> <th>Data</th> </a></h1>
+                                <h1> <a> <th>Sala</th> </a></h1>
+                                <h1> <a> <th>Bloco</th> </a></h1>
+                                <h1> <a> <th>Teste2</th> </a></h1>
+                                <!-- <h1> <a> <th>Teste</th> </a></h1> -->
                             </tr>
+                            {% for posts in post %}
                             <tr>
-                                    <h1> <a> <td>Ajuste</td>   </a></h1>
-                                    <h1> <a> <td>Se deixar de realizar o ajuste de horário poderá impactar no funcionamento do seu portal,
-                                            Ava ou problemas acadêmicos em geral.</td>   </a></h1>
+
+                                <td>{{posts.id}}</td>
+                                <td>{{posts.title}}</td>
+                                <td>{{ posts.text }}</td>
+                                <td>{{ posts.text1 }}</td>
+                                <td>{{ posts.text2 }}</td>
+                                <td>{{ posts.text3 }}</td>
+                                <td>{{ posts.text4 }}</td>
+
                             </tr>
-                            <tr>
-                                    <h1> <a> <td>Carteirinha</td> </a></h1>
-                                    <h1> <a> <td>Ok</td> </a></h1>
-                            </tr>
-                                
-                            <tr> 
-                                    <h1> <a> <td>Rematricula</td> </a></h1>
-                                    <h1> <a> <td>Caso deixe de realizar a rematricula no periodo do ciclo letivo, poderá impactar no
-                                            funcionamento do seu portal, como Ava ou problemas acadêmicos em geral.
-                                            </td> </a></h1>
-                            </tr>   
-                               
-                            <tr>
-                                    <h1> <a> <td>Boleto</td> </a></h1>
-                                    <h1> <a> <td>Caso esteja com boletos em aberto, poderá impactar nos seus estudos gerando multas
-                                            e bloqueio no seu portal, como Ava ou problemas acadêmicos em geral.
-                                            </td> </a></h1>
-                            </tr>                                                             
-                         
-                          
+                            {% endfor %}
                         </table>
-                       <!-- </div> -->
-                        
-                    </div>   
+                       </div>
+
+                    </div>
                 <!-- </br> -->
+
+
+            <img src="https://png.icons8.com/metro/50/828282/swipe-right.png" style="width:26; float:right;"/>
+            <img src="https://png.icons8.com/metro/50/828282/swipe-left.png" style="width:26; float:left; "/>
+
+             <p>  Deslize a tabela para visualizar mais informações, ok.</p>
+
             </div>
+
         </div>
-        
+        </div>
     </dir>
 
-<dir>
+    <dir>
+    <div class="content">
     <div class="row">
-        <div class="col-md-11">            
-            
+        <div class="col-md-7">
             <br>
-                <div class="panel panel-primary">
+            <div class="panel panel-primary">
 
-                    <div class="panel-heading">Informativos</div>
+                <div class="panel-heading">Observações</div>
 
-                   <div class="table-responsive">
-                        <!--tabela-->
-                    <table class="table">
-                        <tr>
-                            <h1> <a> <th>Nº</th> </a></h1>
-                            <h1> <a> <th>Disciplina</th>   </a></h1>
-                            <h1> <a> <th>Status</th> </a></h1>
-                            <h1> <a> <th>Data</th> </a></h1>
-                            <h1> <a> <th>Sala</th> </a></h1>
-                            <h1> <a> <th>Bloco</th> </a></h1>
-                            <h1> <a> <th>Teste2</th> </a></h1>
-                            <!-- <h1> <a> <th>Teste</th> </a></h1> -->
-                        </tr>
-                        {% for posts in post %}
-                        <tr>                          
-            
-                            <td>{{posts.id}}</td>
-                            <td>{{posts.title}}</td>
-                            <td>{{ posts.text }}</td>
-                            <td>{{ posts.text1 }}</td>
-                            <td>{{ posts.text2 }}</td>
-                            <td>{{ posts.text3 }}</td>
-                            <td>{{ posts.text4 }}</td>
-                            
-                        </tr>
-                        {% endfor %}
-                    </table>
-                   </div>
-                    
-                </div>   
-            <!-- </br> -->
+                <table class="table">
+                    <tr>
+                        <td>Informações 01</td>
+                    </tr>
+
+                    <tr>
+                        <td>Informações 02</td>
+                    </tr>
+
+                    <tr>
+                        <td>Informações 03</td>
+                    </tr>
+                </table>
+
+
+            </div>
         </div>
     </div>
-    
-</dir>
-
-<dir>
-
-<div class="row">
-    <div class="col-md-11">
-        <br>
-        <div class="panel panel-primary">
-
-            <div class="panel-heading">Observações</div>
-            
-            <table class="table">
-                <tr> 
-                    <td>Informações 01</td>                   
-                </tr>
-
-                <tr> 
-                    <td>Informações 02</td>                          
-                </tr>
-
-                <tr> 
-                    <td>Informações 03</td>                     
-                </tr>
-            </table>
-           
-            
-        </div>
     </div>
-</div>
-
-</dir>
+    </dir>
 
 
 
-<footer>
+    <footer>
+        <div class="content">
+        <div class="container">
+                <h2>TI-FAT</h2>
+                <p>Faculdade Anhanguera de Taubaté</p>
+                <img src="https://s3-us-west-2.amazonaws.com/estudante-production/app/public/ckeditor_assets/pictures/128/original/anhanguera_full.svg"
+                class="img-responsive" alt="Cinque Terre" width="150" height="150">
+              </div>
+        </div>
+    </footer>
 
-    <div class="container">
-            <h2>Image</h2>
-            <p>The .img-responsive class makes the image scale nicely to the parent element (resize the browser window to see the effect):</p>                  
-            <img src="https://s3-us-west-2.amazonaws.com/estudante-production/app/public/ckeditor_assets/pictures/128/original/anhanguera_full.svg"
-            class="img-responsive" alt="Cinque Terre" width="150" height="150"> 
-          </div>
-
-</footer>
-
-</body>
+    </body>
 </html>
