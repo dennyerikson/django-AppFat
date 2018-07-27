@@ -1,5 +1,8 @@
 from django.contrib import admin
-from models import Post
+from models import Post, Aluno, Info, Status
 
-#Register your models here.
+#adcionado os models para admin
 admin.site.register(Post)
+admin.site.register(Aluno)
+admin.site.register(Status)
+admin.site.register(Info)

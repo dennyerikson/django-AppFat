@@ -19,11 +19,7 @@
     </head>
     <body>
     <div class="page-header">
-        <h1><a href="/"> AppFat Taubaté</a></h1>
-    </div>
-
-    <div class="page-header2">
-        <h1> Olá, Denny Erikson</h1>
+        <h1> Olá, {{ request.user }}</h1>
     </div>
 
     <!--table-->
@@ -90,31 +86,31 @@
                 <br>
                     <div class="panel panel-primary">
 
-                        <div class="panel-heading">Informativos | Análise de Desenvolvimento de Sistemas</div>
+                        <div class="panel-heading">Informativos | Análise e Desenvolvimento de Sistemas</div>
 
                        <div class="table-responsive">
                             <!--tabela-->
                         <table class="table">
                             <tr>
-                                <h1> <a> <th>Nº</th> </a></h1>
+                                <!-- <h1> <a> <th>Nº</th> </a></h1> -->
                                 <h1> <a> <th>Disciplina</th>   </a></h1>
                                 <h1> <a> <th>Status</th> </a></h1>
                                 <h1> <a> <th>Data</th> </a></h1>
                                 <h1> <a> <th>Sala</th> </a></h1>
                                 <h1> <a> <th>Bloco</th> </a></h1>
-                                <h1> <a> <th>Teste2</th> </a></h1>
+                                <!-- <h1> <a> <th>Teste2</th> </a></h1> -->
                                 <!-- <h1> <a> <th>Teste</th> </a></h1> -->
                             </tr>
                             {% for posts in post %}
                             <tr>
 
-                                <td>{{posts.id}}</td>
-                                <td>{{posts.title}}</td>
-                                <td>{{ posts.text }}</td>
-                                <td>{{ posts.text1 }}</td>
-                                <td>{{ posts.text2 }}</td>
-                                <td>{{ posts.text3 }}</td>
-                                <td>{{ posts.text4 }}</td>
+                                <!-- <td>{{posts.id}}</td> -->
+                                <td>{{posts.dis_disciplina}}</td>
+                                <td>{{ posts.dis_status }}</td>
+                                <td>{{ posts.dis_data }}</td>
+                                <td>{{ posts.dis_sala }}</td>
+                                <td>{{ posts.dis_bloco }}</td>
+                                <!-- <td>{{ posts.text4 }}</td> -->
 
                             </tr>
                             {% endfor %}
@@ -146,17 +142,11 @@
                 <div class="panel-heading">Observações</div>
 
                 <table class="table">
+                    {% for info in infos %}
                     <tr>
-                        <td>Informações 01</td>
+                        <td>{{ info.info_informacao }}</td>
                     </tr>
-
-                    <tr>
-                        <td>Informações 02</td>
-                    </tr>
-
-                    <tr>
-                        <td>Informações 03</td>
-                    </tr>
+                    {% endfor %}                    
                 </table>
 
 
