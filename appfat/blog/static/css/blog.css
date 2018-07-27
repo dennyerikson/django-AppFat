@@ -16,21 +16,10 @@
     padding: 5px 5px 5px 10px;
 }
 
-<<<<<<< HEAD
 .content {
     margin-left: 0px;
 
      width: 80vw;
-=======
-.panel-heading{
-    background-color: #ff6347;
-}
-
-.content {
-    margin-left: 0px;
-
-     width: 80vw; 
->>>>>>> 533a5f1a4d4a7e57a739f26bb9eb903f1510d29e
 
     flex-direction: row;
     justify-content: center;
@@ -38,7 +27,6 @@
 }
 
 h1, h2, h3, h4 {
-<<<<<<< HEAD
 
     font-family: "Century Gothic", CenturyGothic, AppleGothic, sans-serif;
 }
@@ -68,10 +56,6 @@ h1, h2, h3, h4 {
 
 .post h1 a, .post h1 a:visited {
     color: #000000;
-=======
-   
-    font-family: "Century Gothic", CenturyGothic, AppleGothic, sans-serif;
->>>>>>> 533a5f1a4d4a7e57a739f26bb9eb903f1510d29e
 }
 
 .date {
