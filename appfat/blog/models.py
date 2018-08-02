@@ -7,7 +7,7 @@ from django.utils import timezone
 # class PostManager(models.Manager):
 #     def search(self, query):
 #         return self.get_queryset().filter(
-#             models.Q(ra_icontains=query) | \
+#             models.Q(ra_icontains=query) | \  # ou 
 #             models.Q(author_icontains=query)
 #         )
 
@@ -21,6 +21,7 @@ class Aluno(models.Model):
     alu_tel=models.CharField(max_length=30)
     alu_cel=models.CharField(max_length=30)
     alu_email=models.CharField(max_length=150)
+    alu_curso=models.CharField(max_length=200) # add coluna do curso 
 
     created_date = models.DateTimeField(
         default = timezone.now)
@@ -37,11 +38,10 @@ class Aluno(models.Model):
 
 # dados post aluno
 class Post(models.Model):
-
+    #removi coluna do curso
     dis_author = models.ForeignKey('auth.User', on_delete=models.CASCADE)
     dis_cpf = models.CharField(max_length=11)
     dis_disciplina = models.CharField(max_length=300)
-    dis_curso = models.CharField(max_length=300)
     dis_status = models.CharField(max_length=100)
     dis_data = models.CharField(max_length=50)
     dis_sala = models.CharField(max_length=50)

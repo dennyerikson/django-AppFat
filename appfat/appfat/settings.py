@@ -23,10 +23,11 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = 'ryu6fq9n(kt6yft9(@-9##d9%)ww$$ks@-jf%%uvb%#%0k^+gs'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
 # ALLOWED_HOSTS = ['dennyeriks0n.pythonanywhere.com', '*']
 ALLOWED_HOSTS = ['*']
+# ALLOWED_HOSTS = ['localhost', '127.0.0.1']
 
 
 # Application definition
@@ -39,8 +40,6 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'blog',
-
-    # 'django_evolution',
 ]
 
 MIDDLEWARE_CLASSES = [
@@ -59,7 +58,7 @@ ROOT_URLCONF = 'appfat.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS':[os.path.join(BASE_DIR, 'templates')],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -124,3 +123,4 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 STATIC_ROOT = os.path.join(BASE_DIR, 'static')
+LOGIN_REDIRECT_URL = '/'

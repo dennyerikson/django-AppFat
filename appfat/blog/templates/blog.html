@@ -1,212 +1,194 @@
-<!DOCTYPE html>
-<html lang="en">
-    {% load staticfiles %}
-    <head>
-        <!--BOOTSTRAP-->
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-        <link href="//fonts.googleapis.com/css?family=Lobster&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+{% extends "base.html" %}
 
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    {% block content %}    
 
-        <link rel="stylesheet" href="{% static 'css/blog.css' %}">
-
-        <!-- <a href="https://icons8.com">Icon pack by Icons8</a> -->
-
-        <title>AppFat</title>
-    </head>
-    <body>
-    
-    {% for alunos in aluno %}
-        <div class="page-header">
-            <h1> Olá, {{ alunos.alu_nome }} </h1>
-        </div>
-    {% endfor %}
-    
-    <!--table-->
-    <br>
-
-    <!-- Trigger the modal with a button -->
-    <!-- <button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal">Open Modal</button> -->
-
-    <!-- Modal -->
-    <div id="myModal" class="modal fade" role="dialog">
-        <div class="modal-dialog">
-
-            <!-- inserindo modal 27/07/2018 -->
-            <div class="modal-content">
-            <div class="modal-header">
-                <button type="button" class="close" data-dismiss="modal">&times;</button>
-                <h4 class="modal-title">Informações Importantes</h4>
+        {% for alunos in aluno %}
+            <div class="page-header">
+                <h1> Olá, {{ alunos.alu_nome }} </h1>
             </div>
+        {% endfor %}
+        
+        <!--table-->
+        <br>
 
-            <div class="modal-body">              
+        <!-- Trigger the modal with a button -->
+        <!-- <button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="{% url 'login' %}">Open Modal</button> -->
+        <!-- <a href="{% url 'login' }">Clic here</a> -->
+    
+    
+        <!-- Modal -->
+        <div id="myModal" class="modal fade" role="dialog">
+            <div class="modal-dialog">
 
-                <dir>
-                        <div class="content">
-                            <div class="row">
-                                <div class="col-md-11">
-                
-                                    <br>
-                                        <div class="panel panel-primary">                    
-                                            <!-- <div class="table-responsive"> -->
-                                                <!--tabela-->
-                                            <table class="table">
-                
-                                                    {% for sstatus in status %}
-                                                        {% if sstatus.bolsa == '1' %}
-                                                            <tr >
-                                                                <h1> <a> <td>Prouni</td> </a></h1>
-                                                                <h1> <a> <td>Se deixar de trazer os documentos no prazo determinado poderá correr o risco de perder
-                                                                        a bolsa.</td> </a></h1>
+                <!-- inserindo modal 27/07/2018 -->
+                <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <h4 class="modal-title">Informações Importantes</h4>
+                </div>
+
+                <div class="modal-body">              
+
+                    <dir>
+                            <div class="content">
+                                <div class="row">
+                                    <div class="col-md-11">
+                    
+                                        <br>
+                                            <div class="panel panel-primary">                    
+                                                <!-- <div class="table-responsive"> -->
+                                                    <!--tabela-->
+                                                <table class="table">
+                    
+                                                        {% for sstatus in status %}
+                                                            {% if sstatus.bolsa == '1' %}
+                                                                <tr >
+                                                                    <h1> <a> <td>Prouni</td> </a></h1>
+                                                                    <h1> <a> <td>Se deixar de trazer os documentos no prazo determinado poderá correr o risco de perder
+                                                                            a bolsa.</td> </a></h1>
+                                                                </tr>
+                                                            {% endif %}                                        
+                    
+                                                            <tr>
+                                                                    <h1> <a> <td>Ajuste</td>   </a></h1>
+                                                                    <h1> <a> <td>Se deixar de realizar o ajuste de horário poderá impactar no funcionamento do seu portal,
+                                                                            Ava ou problemas acadêmicos em geral.</td>   </a></h1>
                                                             </tr>
-                                                        {% endif %}                                        
-                
-                                                        <tr>
-                                                                <h1> <a> <td>Ajuste</td>   </a></h1>
-                                                                <h1> <a> <td>Se deixar de realizar o ajuste de horário poderá impactar no funcionamento do seu portal,
-                                                                        Ava ou problemas acadêmicos em geral.</td>   </a></h1>
-                                                        </tr>
-                                                        <tr>
-                                                                <h1> <a> <td>Carteirinha</td> </a></h1>
-                                                                <h1> <a> <td>Ok</td> </a></h1>
-                                                        </tr>
-                        
-                                                        <tr>
-                                                                <h1> <a> <td>Rematricula</td> </a></h1>
-                                                                <h1> <a> <td>Caso deixe de realizar a rematricula no periodo do ciclo letivo, poderá impactar no
-                                                                        funcionamento do seu portal, como Ava ou problemas acadêmicos em geral.
-                                                                        </td> </a></h1>
-                                                        </tr>
-                        
-                                                        <tr>
-                                                                <h1> <a> <td>Boleto</td> </a></h1>
-                                                                <h1> <a> <td>Caso esteja com boletos em aberto, poderá impactar nos seus estudos gerando multas
-                                                                        e bloqueio no seu portal, como Ava ou problemas acadêmicos em geral.
-                                                                        </td> </a></h1>
-                                                        </tr>
-                
-                                                    {% endfor %}
-                
-                                                
-                                            </table>
-                                            <!-- </div> -->
-                
-                                        </div>
-                                    <!-- </br> -->
+                                                            <tr>
+                                                                    <h1> <a> <td>Carteirinha</td> </a></h1>
+                                                                    <h1> <a> <td>Ok</td> </a></h1>
+                                                            </tr>
+                            
+                                                            <tr>
+                                                                    <h1> <a> <td>Rematricula</td> </a></h1>
+                                                                    <h1> <a> <td>Caso deixe de realizar a rematricula no periodo do ciclo letivo, poderá impactar no
+                                                                            funcionamento do seu portal, como Ava ou problemas acadêmicos em geral.
+                                                                            </td> </a></h1>
+                                                            </tr>
+                            
+                                                            <tr>
+                                                                    <h1> <a> <td>Boleto</td> </a></h1>
+                                                                    <h1> <a> <td>Caso esteja com boletos em aberto, poderá impactar nos seus estudos gerando multas
+                                                                            e bloqueio no seu portal, como Ava ou problemas acadêmicos em geral.
+                                                                            </td> </a></h1>
+                                                            </tr>
+                    
+                                                        {% endfor %}
+                    
+                                                    
+                                                </table>
+                                                <!-- </div> -->
+                    
+                                            </div>
+                                        <!-- </br> -->
+                                    </div>
                                 </div>
-                            </div>
-                            </div>
-                        </dir>
+                                </div>
+                            </dir>
 
+                </div>
+
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                </div>
             </div>
 
-            <div class="modal-footer">
-                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
             </div>
         </div>
 
-        </div>
-    </div>
+        
 
-    
+        <dir>
+            <div class="content">
+            <div class="row">
+                <div class="col-md-7">
+                        <div class="panel panel-primary">
+                        
+                            <div class="panel-heading">Informativos | {{ curso }}
+                                </div>
+                        
+                        <div class="table-responsive">
+                                <!--tabela-->
+                            <table class="table">
+                                <tr>
+                                    <!-- estrutura da tabela -->
+                                    <h1> <a> <th>Disciplina</th>   </a></h1>
+                                    <h1> <a> <th>Status</th> </a></h1>
+                                    <h1> <a> <th>Data</th> </a></h1>
+                                    <h1> <a> <th>Sala</th> </a></h1>
+                                    <h1> <a> <th>Bloco</th> </a></h1>
+                                
+                                </tr>
+                                {% for posts in post %}
+                                <tr>
+                                    <td>{{posts.dis_disciplina}}</td>
+                                    <td>{{ posts.dis_status }}</td>
+                                    <td>{{ posts.dis_data }}</td>
+                                    <td>{{ posts.dis_sala }}</td>
+                                    <td>{{ posts.dis_bloco }}</td>
+                                    
+                                </tr>                            
+                                {% endfor %}
+                            </table>
+                        </div>
 
-    <dir>
+                        </div>
+                    <!-- </br> -->
+
+
+                <img src="https://png.icons8.com/metro/50/828282/swipe-right.png" style="width:26; float:right;"/>
+                <img src="https://png.icons8.com/metro/50/828282/swipe-left.png" style="width:26; float:left; "/>
+
+                <p>  Deslize a tabela para visualizar mais informações, ok.</p>
+
+                </div>
+
+            </div>
+            </div>
+        </dir>
+
+        <dir>
         <div class="content">
         <div class="row">
             <div class="col-md-7">
-                    <div class="panel panel-primary">
-                      
-                        <div class="panel-heading">Informativos | Analise e Desenvolvimento de Sistemas </div>
-                      
-                       <div class="table-responsive">
-                            <!--tabela-->
-                        <table class="table">
-                            <tr>
-                                <!-- estrutura da tabela -->
-                                <h1> <a> <th>Disciplina</th>   </a></h1>
-                                <h1> <a> <th>Status</th> </a></h1>
-                                <h1> <a> <th>Data</th> </a></h1>
-                                <h1> <a> <th>Sala</th> </a></h1>
-                                <h1> <a> <th>Bloco</th> </a></h1>
-                               
-                            </tr>
-                            {% for posts in post %}
-                            <tr>
-                                <td>{{posts.dis_disciplina}}</td>
-                                <td>{{ posts.dis_status }}</td>
-                                <td>{{ posts.dis_data }}</td>
-                                <td>{{ posts.dis_sala }}</td>
-                                <td>{{ posts.dis_bloco }}</td>
-                                
-                            </tr>                            
-                            {% endfor %}
-                        </table>
-                       </div>
+                <br>
+                <div class="panel panel-primary">
 
-                    </div>
-                <!-- </br> -->
+                    <div class="panel-heading">Observações</div>
+
+                    <table class="table">
+                        {% for infos in info %}
+                        <tr>
+                            <td>{{ infos.info_informacao }}</td>
+                        </tr>
+                        {% endfor %}                    
+                    </table>
 
 
-            <img src="https://png.icons8.com/metro/50/828282/swipe-right.png" style="width:26; float:right;"/>
-            <img src="https://png.icons8.com/metro/50/828282/swipe-left.png" style="width:26; float:left; "/>
-
-             <p>  Deslize a tabela para visualizar mais informações, ok.</p>
-
-            </div>
-
-        </div>
-        </div>
-    </dir>
-
-    <dir>
-    <div class="content">
-    <div class="row">
-        <div class="col-md-7">
-            <br>
-            <div class="panel panel-primary">
-
-                <div class="panel-heading">Observações</div>
-
-                <table class="table">
-                    {% for infos in info %}
-                    <tr>
-                        <td>{{ infos.info_informacao }}</td>
-                    </tr>
-                    {% endfor %}                    
-                </table>
-
-
+                </div>
             </div>
         </div>
-    </div>
-    </div>
-    </dir>
-
-
-
-    <footer>
-        <div class="content">
-        <div class="container">
-                <h2>TI-FAT</h2>
-                <p>Faculdade Anhanguera de Taubaté</p>
-                <img src="https://s3-us-west-2.amazonaws.com/estudante-production/app/public/ckeditor_assets/pictures/128/original/anhanguera_full.svg"
-                class="img-responsive" alt="Cinque Terre" width="150" height="150">
-              </div>
         </div>
-    </footer>
+        </dir>
 
-    <!-- script para carregar modal ao iniciar a pagina 27/07/2018 -->
-    <script>
-        $(document).ready(function(){
-            $('#myModal').modal('show');
-        });
-    </script>
 
-    </body>
-</html>
+
+        <footer>
+            <div class="content">
+            <div class="container">
+                    <h2>TI-FAT</h2>
+                    <p>Faculdade Anhanguera de Taubaté</p>
+                    <img src="https://s3-us-west-2.amazonaws.com/estudante-production/app/public/ckeditor_assets/pictures/128/original/anhanguera_full.svg"
+                    class="img-responsive" alt="Cinque Terre" width="150" height="150">
+                </div>
+            </div>
+        </footer>
+
+        <!-- script para carregar modal ao iniciar a pagina 27/07/2018 -->
+        <script>
+            $(document).ready(function(){
+                $('#myModal').modal('show');
+            });
+        </script>
+
+{% endblock %}
