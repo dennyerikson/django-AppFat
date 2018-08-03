@@ -1,25 +1,72 @@
 {% extends "base.html" %}
 
 {% block content %}
-    {% if form.errors %}
+    <!-- {% if form.errors %}
         <p>Your username and password didn't match. Please try again.</p>
-    {% endif %}
+    {% endif %} -->
 
-    <form method="post" action="{% url 'login' %}">
-    {% csrf_token %}
-        <table>
-        <tr>
-            <td>{{ form.username.label_tag }}</td>
-            <td>{{ form.username }}</td>
-        </tr>
-        
-        <tr>
-            <td>{{ form.password.label_tag }}</td>
-            <td>{{ form.password }}</td>
-        </tr>
-        </table>
+    <!-- <div class="login-page">
+            <div class="form">
+              
+                    <form method="post" action="{% url 'login' %}">
+                            {% csrf_token %}
+                                <table>
+                                    <tr>
+                                       <p> <td>{{ form.username.label_tag }}</td></p>
+                                        <td>{{ form.username }}</td>
+                                    </tr>
 
-        <input type="submit" value="login" />
-        <input type="hidden" name="next" value="{{ next }}" />
-    </form>
+                                    <tr>    
+                                        <td><dir>
+                                            
+                                        </dir></td>                                                                 
+                                    </tr>
+
+                                    <tr>
+                                        <td>{{ form.password.label_tag }}</td>
+                                        <td>{{ form.password }}</td>
+                                    </tr>
+                                </table>
+                        
+                                <input type="submit" value="login" />
+                                <input type="hidden" name="next" value="{{ next }}" />
+                            </form>
+              
+            </div>
+     </div> -->
+
+
+     <!--Login Simplemooc-->
+
+     <div class="content">
+        <div class="pure-g-r content-ribbon">
+            <div class="pure-u-1">
+                <h2>Informe seus dados de cadastro</h2>
+                <form class="pure-form pure-form-aligned" method="POST">
+                    {% csrf_token %}
+                    <fieldset>
+                        {{ form.non_field_errors }}
+                        
+                        {% for field in form %}
+                            <div class="pure-control-group">
+                                {{ field.label_tag}}
+                                {{field}}
+                                {{field.errors}}
+                            </div>
+                        {% endfor %}
+
+                        <div class="pure-controls">
+                            <button type="submit" class="pure-button pure-button-primary">Entrar</button>
+                        </div>
+
+                    </fieldset>
+                    <p>
+                        Não é cadastrado? <a href="" title="">Cadastre-se</a> <br />
+                        Esqueceu a senha? <a href="" title="">Nova senha</a> <br />
+                    </p>
+                </form>
+            </div>
+        </div>
+
+
 {% endblock %}
