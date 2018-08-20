@@ -1,10 +1,12 @@
 # -*-coding: utf-8 -*-";
-
-from django.shortcuts import render
+import csv
+from django.shortcuts import render, redirect
 from django.utils import timezone
 from .models import Post, Aluno, Status, Info
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth import authenticate, login
+from django.contrib.auth.forms import UserCreationForm
+from django.contrib.auth.admin import User
 
 
 # def user(request):
@@ -28,9 +30,31 @@ def home(request):
 
     return render(request, 'blog.html', context)
 
+def register(request):
+    if request.method == 'POST':
+        form = UserCreationForm(request.POST)
+        if form.is_valid():
+            form.save()
+            return redirect('accounts/')
+    else:
+        form = UserCreationForm()
+        
+        args = {'form': form}
+        return render(request, 'registration/cadastro.html', args)
 
 # def curso(request):
 #     name_curso = Aluno.objects.filter(alu_curso=consulta).get()
 #     return render(request, 'blog.html', {'curso':name_curso})
 
-#add imageview in form
+# def resgister(request):
+#     template_name = 'registration/cadastro.html'
+#     context = {
+#         'form':UserCreationForm()
+#     }
+#     return render(request, 'registration/cadastro.html')
+
+# """ carregar dados CSV """
+# def cvs_list(request):
+#     lista = []
+#     dados_csv = csv.reader(open())
+#     return render(request, {})
