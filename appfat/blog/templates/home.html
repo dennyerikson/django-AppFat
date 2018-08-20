@@ -1,0 +1,171 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+      <link  rel="stylesheet" href="{% static 'css/style.css' %}">
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+      <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+    <meta charset="UTF-8">
+    <title>APP FAT</title>
+    <!--<a href="https://icons8.com">Icon pack by Icons8</a>-->
+</head>
+
+<body class="fundo" style="background-image: url('{% static "img/fundo.jpg"%}')";>
+ <!-- Modal -->
+        <div id="myModal" class="modal fade" role="dialog">
+            <div class="modal-dialog">
+
+                <!-- inserindo modal 27/07/2018 -->
+                <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <h4 class="modal-title">Informações Importantes</h4>
+                </div>
+
+                <div class="modal-body">
+
+                <table class="tabelamodal">
+                    <tr>
+                        <td class="bb">
+                            <b>Ajuste de Horário</b>
+                        </td>
+                        <td class="bb">
+                            Entre no seu portal e realize o Ajuste de Horário.
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="bb">
+                            <b>Boletos</b>
+                        </td>
+                        <td class="bb">
+                            Existe um boleto em aberto, entre em seu portal para regularizar.
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="bb">
+                            <b>Carteirinha</b>
+                        </td>
+                        <td class="bb">
+                            sua carteirinha chegou, retire no setor de Informática.
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="bb">
+                            <b>Rematrícula</b>
+                        </td>
+                        <td class="bb">
+                            Você ainda não realizou sua rematrícula, não perca mais tempo, acesse seu portal para regularizar sua situação.
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="bb">
+                            <b>Prouni</b>
+                        </td>
+                        <td class="bb">
+                            Entregue os documentos necessarios para regularizar a situação de sua bolsa.
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="bb">
+                            <b>Fies</b>
+                        </td>
+                        <td class="bb">
+                           Você ainda não realizou o aditamento, não perca mais tempo e regularize sua situação.
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="">
+                            <b>Canal Conecta</b>
+                        </td>
+                        <td class="">
+                           Temos uma vaga de emprego pra você, entre no portal do canal conecta e acesse a vaga.
+                        </td>
+                    </tr>
+                </table>
+
+                </div>
+
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                </div>
+            </div>
+
+            </div>
+        </div>
+
+        <!-- script para carregar modal ao iniciar a pagina 27/07/2018 -->
+        <script>
+            $(document).ready(function(){
+                $('#myModal').modal('show');
+            });
+        </script>
+
+
+
+
+
+
+<br><br><br><br><br><br><br>
+
+
+
+<h1 class="textcenter"><b>Olá, Ronald Gonçalves</b></h1>
+<br>
+
+<table class="tabela textomenu">
+    <tr>
+        <td class="tdtext tdcolor1">
+            <a href="boleto"><b>BOLETOS</b></a>
+        </td>
+    </tr>
+    <tr height="7"></tr>
+     <tr>
+        <td class="tdtext tdcolor2">
+            <a href="curso"> <b>MEU CURSO</b></a>
+        </td>
+    </tr>
+     <tr height="7"></tr>
+    <tr>
+        <td class="tdtext tdcolor3">
+            <a href="sala"> <b>SALA ESPECIAL</b></a>
+        </td>
+    </tr>
+     <tr height="7"></tr>
+    <tr>
+        <td class="tdtext tdcolor4">
+            <a href="conecta"><b>CANAL CONECTA</b></a>
+        </td>
+    </tr>
+    <tr height="7"></tr>
+    <tr>
+        <td class="tdtext tdcolor6">
+            <a href="convenio"><b>CONVÊNIOS</b></a>
+        </td>
+    </tr>
+    <tr height="7"></tr>
+    <tr>
+        <td class="tdtext tdcolor5">
+            <a href="info"><b>INFORMAÇÕES</b></a>
+        </td>
+    </tr>
+</table>
+
+<br>
+
+<table class="tabela textomenu2">
+
+    <tr>
+        <td class="">
+            <a href="http://api.whatsapp.com/send?1=pt_BR&phone=5512981901892"> <img src="{% static "/img/whats.png" %} "width="30" ><br><b>Rematrícula</b></a>
+        </td>
+        <td class="">
+            <a href="http://api.whatsapp.com/send?1=pt_BR&phone=5512981901892"> <img src="{% static "/img/whats.png" %} "width="30" ><br><b>Secretaria</b></a>
+        </td>
+    </tr>
+
+</table>
+</body>
+</html>

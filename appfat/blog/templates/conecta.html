@@ -1,0 +1,41 @@
+{% extends "base.html" %}
+{% load static %}
+{% block title %}Canal Conecta{% endblock %}
+{% block content %}
+
+<BR>
+<div align="center">
+  <img src="{% static "/img/canalconecta.jpg" %}" width="300">
+</div>
+<BR>        
+<div class="divtexto">
+    INFORMAÇÕES SOBRE O CANAL CONECTA.
+</div>
+
+    
+<!-- inicio laço -->
+<BR>
+<table class="tabledados">
+  <tr>
+      <td class="beck bb" colspan="3"><B>INFORMAÇÃO</B></td>
+  </tr>
+  <tr>
+      <td class="tamanho"><b>VAGA</b></td>
+    <td class="">-</td>
+    <td class="">VARIAVEL</td>
+  </tr>
+  <tr>
+      <td class="bc tamanho"><b>ID</b></td>
+    <td class="bc">-</td>
+    <td class="bc">VARIAVEL</td>
+  </tr>
+</table>
+<!-- fim laço -->
+
+<BR><BR>
+    <div align="center">
+      <a href="/home">
+        <img src="{% static "/img/voltar.png" %}"  width="60">
+      </a>
+    </div>
+    {% endblock %}
