@@ -42,12 +42,13 @@ from django.contrib.auth.admin import User
 #         args = {'form': form}
 #         return render(request, 'registration/cadastro.html', args)
 
-@login_required
+# @login_required
 def home(request):
     return render(request, 'home.html', {})
 
+# @login_required
 def boleto(request):
-    return render(request, 'boleto.html', {})
+    return render(request, 'blog/boleto.html', {})
 
 def curso(request):
     return render(request, 'curso.html', {})
