@@ -1,19 +1,19 @@
 from django.conf.urls import url, include
-import blog
 from . import views
+import appfat
 
 urlpatterns = [
     # url( '', home),
     # url('register/', register, name='register')
 
 
-    url('', views.home, name='home'),
-    url(r'^boleto/$', views.boleto, name='boleto'),
+    url(r'^$', views.home, name='home'),
+    url('boleto/', views.boleto, name='boleto'),
     url('curso/', views.curso, name='curso'),
     url('sala/', views.sala, name='sala'),
     url('conecta/',views.conecta, name='conecta'),
     url('convenio/', views.convenio, name='convenio'),
-    url('info/', views.Info, name='info'),
+    url('info/', views.info, name='info'),
 
 
 ]

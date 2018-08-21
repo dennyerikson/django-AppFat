@@ -1,11 +1,11 @@
-{% extends "base.html" %}
+{% extends "blog/base.html" %}
 {% load static %}
 {% block title %}Convênios{% endblock %}
 {% block content %}
 
 <BR>
 <div align="center">
-  <img src="{% static "/img/convenios.jpg" %}" width="300">
+  <img src="{% static "blog/img/convenios.jpg" %}" width="300">
 </div>
 <BR>        
 <div class="divtexto">
@@ -28,10 +28,5 @@
 <!-- fim laço -->
 
 
-<BR><BR>
-    <div align="center">
-      <a href="/home">
-        <img src="{% static "/img/voltar.png" %}"  width="60">
-      </a>
-    </div>
+
     {% endblock %}

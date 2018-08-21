@@ -26,5 +26,5 @@ urlpatterns = [
     # add views de login e logout
     url('accounts/login/', views.login, {'template_name':'registration/login.html'}, name='login'),
     url('accounts/logout/', views.logout, name='logout', kwargs={'next_page': '/'}),
-    url('', include('blog.urls', namespace='blog'))
+    url('', include('blog.urls'))
 ]

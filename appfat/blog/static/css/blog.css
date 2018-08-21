@@ -392,7 +392,6 @@ body {
 	  height: auto;
 	  padding: 10px;
 		/* @include box-sizing(border-box);
-
 		&:focus {
 		  z-index: 2;
 		} */
@@ -409,6 +408,5 @@ body {
 	  border-top-left-radius: 0;
 	  border-top-right-radius: 0;
 	}
-
 
 

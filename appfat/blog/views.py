@@ -42,28 +42,31 @@ from django.contrib.auth.admin import User
 #         args = {'form': form}
 #         return render(request, 'registration/cadastro.html', args)
 
-# @login_required
+@login_required
 def home(request):
-    return render(request, 'home.html', {})
+    return render(request, 'blog/home.html', {})
 
-# @login_required
+@login_required
 def boleto(request):
     return render(request, 'blog/boleto.html', {})
-
+@login_required
 def curso(request):
-    return render(request, 'curso.html', {})
-
+    return render(request, 'blog/curso.html', {})
+@login_required
 def sala(request):
-    return render(request, 'sala.html', {})
-
+    return render(request, 'blog/sala.html', {})
+@login_required
 def conecta(request):
-    return render(request, 'conecta.html', {})
-
+    return render(request, 'blog/conecta.html', {})
+@login_required
 def convenio(request):
-    return render(request, 'convenio.html', {})
-
+    return render(request, 'blog/convenio.html', {})
+    
+@login_required
 def info(request):
-    return render(request, 'info.html', {})
+    info = Info.objects.filter() #tabela informação
+    context = {'info':info}
+    return render(request, 'blog/info.html', context)
 
 # def login(request):
 #     return render(request, 'login.html')

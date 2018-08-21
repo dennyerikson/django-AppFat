@@ -2,21 +2,21 @@
 <!DOCTYPE html>
 <html lang="en">
 
-<head>
+    <head>
 
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-    <link  rel="stylesheet" href="{% static 'css/style.css' %}">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+        <link  rel="stylesheet" href="{% static 'css/style.css' %}">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 
-    <meta charset="UTF-8">
-    <title>APP FAT</title>
-    <!--<a href="https://icons8.com">Icon pack by Icons8</a>-->
-</head>
+        <meta charset="UTF-8">
+        <title>APP FAT</title>
+        <!--<a href="https://icons8.com">Icon pack by Icons8</a>-->
+    </head>
 
-<body class="fundo" style="background-image: url('{% static "img/fundo.jpg"%}')";>
- <!-- Modal -->
+    <body class="fundo" style="background-image: url('{% static "blog/img/fundo.jpg"%}')";>
+    <!-- Modal -->
         <div id="myModal" class="modal fade" role="dialog">
             <div class="modal-dialog">
 
@@ -106,10 +106,6 @@
         </script>
 
 
-
-
-
-
 <br><br><br><br><br><br><br>
 
 
@@ -120,37 +116,37 @@
 <table class="tabela textomenu">
     <tr>
         <td class="tdtext tdcolor1">
-            <a href="boleto"><b>BOLETOS</b></a>
+            <a href="{% url 'boleto' %}"><b>BOLETOS</b></a>
         </td>
     </tr>
     <tr height="7"></tr>
      <tr>
         <td class="tdtext tdcolor2">
-            <a href="curso"> <b>MEU CURSO</b></a>
+            <a href="/curso"> <b>MEU CURSO</b></a>
         </td>
     </tr>
      <tr height="7"></tr>
     <tr>
         <td class="tdtext tdcolor3">
-            <a href="sala"> <b>SALA ESPECIAL</b></a>
+            <a href="/sala"> <b>SALA ESPECIAL</b></a>
         </td>
     </tr>
      <tr height="7"></tr>
     <tr>
         <td class="tdtext tdcolor4">
-            <a href="conecta"><b>CANAL CONECTA</b></a>
+            <a href="/conecta"><b>CANAL CONECTA</b></a>
         </td>
     </tr>
     <tr height="7"></tr>
     <tr>
         <td class="tdtext tdcolor6">
-            <a href="convenio"><b>CONVÊNIOS</b></a>
+            <a href="/convenio"><b>CONVÊNIOS</b></a>
         </td>
     </tr>
     <tr height="7"></tr>
     <tr>
         <td class="tdtext tdcolor5">
-            <a href="info"><b>INFORMAÇÕES</b></a>
+            <a href="/info"><b>INFORMAÇÕES</b></a>
         </td>
     </tr>
 </table>
@@ -161,13 +157,14 @@
 
     <tr>
         <td class="">
-            <a href="http://api.whatsapp.com/send?1=pt_BR&phone=5512981901892"> <img src="{% static "/img/whats.png" %} "width="30" ><br><b>Rematrícula</b></a>
+            <a href="http://api.whatsapp.com/send?1=pt_BR&phone=5512981901892"> <img src="https://png.icons8.com/color/100/ecf0f1/whatsapp.png "width="30" ><br><b>Rematrícula</b></a>
         </td>
         <td class="">
-            <a href="http://api.whatsapp.com/send?1=pt_BR&phone=5512981901892"> <img src="{% static "/img/whats.png" %} "width="30" ><br><b>Secretaria</b></a>
+            <a href="http://api.whatsapp.com/send?1=pt_BR&phone=5512981901892"> <img src="https://png.icons8.com/color/100/ecf0f1/whatsapp.png "width="30" ><br><b>Secretaria</b></a>
         </td>
     </tr>
 
 </table>
-</body>
+
+    </body>
 </html>
