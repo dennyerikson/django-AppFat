@@ -109,8 +109,9 @@
 <br><br><br><br><br><br><br>
 
 
-
-<h1 class="textcenter"><b>Olá, Ronald Gonçalves</b></h1>
+{% for alunos in aluno %}
+    <h1 class="textcenter"><b>Olá, {{ alunos.alu_nome }}</b></h1>
+{% endfor %}
 <br>
 
 <table class="tabela textomenu">

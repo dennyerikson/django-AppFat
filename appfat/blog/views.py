@@ -41,10 +41,15 @@ from django.contrib.auth.admin import User
 
 #         args = {'form': form}
 #         return render(request, 'registration/cadastro.html', args)
-
+nome = []
 @login_required
 def home(request):
-    return render(request, 'blog/home.html', {})
+    aluno = Aluno.objects.filter(alu_cpf=request.user) #dados aluno
+    # aluno = Aluno.alu_nome.filter(alu_cpf=request.user).only('alu_nome') #dados aluno
+        
+    # first_nome = str(aluno.alu_nome).split(' ')
+    # return render(request, 'blog/home.html', {'aluno':aluno})
+    return render(request, 'blog/home.html', {'aluno':aluno})
 
 @login_required
 def boleto(request):
@@ -61,7 +66,7 @@ def conecta(request):
 @login_required
 def convenio(request):
     return render(request, 'blog/convenio.html', {})
-    
+
 @login_required
 def info(request):
     info = Info.objects.filter() #tabela informação
