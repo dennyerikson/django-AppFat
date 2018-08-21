@@ -1,0 +1,36 @@
+{% extends "base.html" %}
+{% load static %}
+{% block title %}Informações{% endblock %}
+{% block content %}
+
+<BR>
+<div align="center">
+  <img src="{% static "/img/informacoes.jpg" %}" width="300">
+</div>
+<BR>        
+<div class="divtexto">
+        INFORMAÇÕES EM GERAL.
+</div>
+
+
+<!-- inicio laço -->
+<BR>
+<table class="tabledados">
+  <tr>
+    <td class="beck bb" colspan="3"><B>INFORMAÇÃO</B></td>
+  </tr>
+  <tr>
+    <td class="tamanho"><b>VARIAVEL</b></td>
+    <td class="">-</td>
+    <td class="">VARIAVEL</td>
+  </tr>
+ </table>
+<!-- fim laço -->
+
+ <BR><BR>
+    <div align="center">
+      <a href="/home">
+        <img src="{% static "/img/voltar.png" %}"  width="60">
+      </a>
+    </div>
+    {% endblock %}

@@ -1,0 +1,70 @@
+{% extends "base.html" %}
+{% load static %}
+{% block title %}Meu Curso{% endblock %}
+{% block content %}
+
+<BR>
+<div align="center">
+  <img src="{% static "/img/meucurso.jpg" %}" width="300">
+</div>
+<BR>        
+<div class="divtexto">
+    AQUI VOCÊ ENCONTRA AS INFORMAÇÕES INPORTANTES DO SEU CURSO E PRINCIPALMENTE OS CONTATOS DO SEU COORDENADOR E DE SEUS PROFESSORES.
+</div>
+<BR>
+
+
+<table class="tabledados">
+  <tr>
+      <td class="beck bb" colspan="3"><B>INFORMAÇÕES</B></td>
+  </tr>
+  <tr>
+      <td class="tamanho"><b>CURSO</b></td>
+    <td class="">-</td>
+    <td class="">VARIAVEL</td>
+  </tr>
+  <tr>
+      <td class="bc bb tamanho"><b>STATUS</b></td>
+    <td class="bc bb">-</td>
+    <td class="bc bb">VARIAVEL</td>
+  </tr>
+     <tr><td class="bb" colspan="3"></td></tr>
+
+     
+<!-- inicio laço -->
+  <tr><td class="bb" colspan="3"></td></tr>
+  <tr>
+    <td class="tamanho bb"><b>PROFESSOR</b></td>
+    <td class="bb">-</td>
+    <td class="bb">VARIAVEL</td>
+  </tr>
+   <tr>
+      <td class="tamanho bb"><b>CONTATO</b></td>
+    <td class="bb">-</td>
+    <td class="bb">VARIAVEL</td>
+  </tr>
+    <tr><td class="bb" colspan="3"></td></tr>
+<!-- fim laço -->
+
+
+     <tr><td class="bb" colspan="3"></td></tr>
+  <tr>
+      <td class="tamanho bb"><b>COORDENADOR</b></td>
+    <td class="bb">-</td>
+    <td class="bb">VARIAVEL</td>
+  </tr>
+   <tr>
+      <td class="tamanho"><b>CONTATO</b></td>
+    <td class="">-</td>
+    <td class="">VARIAVEL</td>
+  </tr>
+</table>
+
+
+<BR><BR>
+  <div align="center">
+    <a href="/home">
+      <img src="{% static "/img/voltar.png" %}"  width="60">
+    </a>
+  </div>
+  {% endblock %}

@@ -1,0 +1,45 @@
+{% extends "base.html" %}
+{% load static %}
+{% block title %}Boletos{% endblock %}
+{% block content %}
+<BR>
+<div align="center">
+  <img src="{% static "/img/boletos.jpg" %}" width="300">
+</div>
+<BR>        
+<div class="divtexto">
+  NÃO DEIXE BOLETOS EM ABERTO, ISSO PODE IMPACTAR NA SUA VIDA FINANCEIRA E ACADEMICA, IMPEDINDO O ACESSO AO AVA, LISTA DE PRESENÇA ENTRE OUTROS PROBLEMAS.
+</div>
+
+
+<!-- inicio laço -->
+<BR>
+<table class="tabledados">
+  <tr>
+    <td class="beck bb" colspan="3"><B>INFORMAÇÃO</B></td>
+  </tr>
+  <tr>
+    <td class="tamanho"><b>BOLETO</b></td>
+    <td class="">-</td>
+    <td class="">VARIAVEL</td>
+  </tr>
+  <tr>
+    <td class="bc bb tamanho"><b>DATA</b></td>
+    <td class="bc bb">-</td>
+    <td class="bc bb">VARIAVEL</td>
+  </tr>
+  <tr>
+    <td class="tamanho"><b>STATUS</b></td>
+    <td class="">-</td>
+    <td class="">VARIAVEL</td>
+  </tr>
+</table>
+<!-- fim laço -->
+
+<BR><BR>
+<div align="center">
+  <a href="/home">
+    <img src="{% static "/img/voltar.png" %}"  width="60">
+  </a>
+</div>
+{% endblock %}
