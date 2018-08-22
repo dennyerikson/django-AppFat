@@ -16,6 +16,22 @@
     </head>
 
     <body class="fundo" style="background-image: url('{% static "blog/img/fundo.jpg"%}')";>
+
+    {% if user.is_authenticated %}
+        <a class=logout href="{% url 'logout' %}" class="top-menu"><img src="https://png.icons8.com/metro/50/333333/exit.png" width="26" >
+            <div class=logout text-align=center >
+                <p>Sair</p>
+            </div>
+            <div class=logout align=end>
+                {% ifequal user.username "38019987894" %}
+                <a href="/admin/login/?next=/admin"><img src="https://png.icons8.com/material-rounded/50/333333/menu-2.png" width="26"></a></h1>
+                {% endifequal %}
+            </div>
+            
+            
+        </a>   
+    {% endif %}   
+
     <!-- Modal -->
         <div id="myModal" class="modal fade" role="dialog">
             <div class="modal-dialog">
@@ -28,64 +44,100 @@
                 </div>
 
                 <div class="modal-body">
-
+         
                 <table class="tabelamodal">
-                    <tr>
-                        <td class="bb">
-                            <b>Ajuste de Horário</b>
-                        </td>
-                        <td class="bb">
-                            Entre no seu portal e realize o Ajuste de Horário.
-                        </td>
-                    </tr>
-                    <tr>
-                        <td class="bb">
-                            <b>Boletos</b>
-                        </td>
-                        <td class="bb">
-                            Existe um boleto em aberto, entre em seu portal para regularizar.
-                        </td>
-                    </tr>
-                    <tr>
-                        <td class="bb">
-                            <b>Carteirinha</b>
-                        </td>
-                        <td class="bb">
-                            sua carteirinha chegou, retire no setor de Informática.
-                        </td>
-                    </tr>
-                    <tr>
-                        <td class="bb">
-                            <b>Rematrícula</b>
-                        </td>
-                        <td class="bb">
-                            Você ainda não realizou sua rematrícula, não perca mais tempo, acesse seu portal para regularizar sua situação.
-                        </td>
-                    </tr>
-                    <tr>
-                        <td class="bb">
-                            <b>Prouni</b>
-                        </td>
-                        <td class="bb">
-                            Entregue os documentos necessarios para regularizar a situação de sua bolsa.
-                        </td>
-                    </tr>
-                    <tr>
-                        <td class="bb">
-                            <b>Fies</b>
-                        </td>
-                        <td class="bb">
-                           Você ainda não realizou o aditamento, não perca mais tempo e regularize sua situação.
-                        </td>
-                    </tr>
-                    <tr>
-                        <td class="">
-                            <b>Canal Conecta</b>
-                        </td>
-                        <td class="">
-                           Temos uma vaga de emprego pra você, entre no portal do canal conecta e acesse a vaga.
-                        </td>
-                    </tr>
+                    {% for stt in status %}
+                        {% ifequal stt.status_ajuste "1" %}
+                        <tr>
+                            <td class="bb">
+                                <b>Ajuste de Horário</b>
+                            </td>
+                            <td class="bb">
+                                Entre no seu portal e realize o Ajuste de Horário.
+                            </td>
+                        </tr>
+                        {% endifequal %}
+                    
+                    {% endfor %}
+
+                    {% for stt in status %}
+                        {% ifequal stt.status_boleto "1" %}
+                        <tr>
+                            <td class="bb">
+                                <b>Boletos</b>
+                            </td>
+                            <td class="bb">
+                                Existe um boleto em aberto, entre em seu portal para regularizar.
+                            </td>
+                        </tr>
+                        {% endifequal %}
+                    {% endfor %}
+
+                    {% for stt in status %}
+                        {% ifequal stt.status_card "1" %}
+                        <tr>
+                            <td class="bb">
+                                <b>Carteirinha</b>
+                            </td>
+                            <td class="bb">
+                                sua carteirinha chegou, retire no setor de Informática.
+                            </td>
+                        </tr>
+                        {% endifequal %}
+                    {% endfor %}
+
+                    {% for stt in status %}
+                        {% ifequal stt.status_rematricula "1" %}
+                        <tr>
+                            <td class="bb">
+                                <b>Rematrícula</b>
+                            </td>
+                            <td class="bb">
+                                Você ainda não realizou sua rematrícula, não perca mais tempo, acesse seu portal para regularizar sua situação.
+                            </td>
+                        </tr>
+                        {% endifequal %}
+                    {% endfor %}
+
+                    {% for stt in status %}
+                        {% ifequal stt.status_bolsa "1" %}
+                        <tr>
+                            <td class="bb">
+                                <b>Prouni</b>
+                            </td>
+                            <td class="bb">
+                                Entregue os documentos necessarios para regularizar a situação de sua bolsa.
+                            </td>
+                        </tr>
+                        {% endifequal %}
+                    {% endfor %}
+
+                    {% for stt in status %}
+                        {% ifequal stt.status_bolsa "1" %}
+                        <tr>
+                            <td class="bb">
+                                <b>Fies</b>
+                            </td>
+                            <td class="bb">
+                            Você ainda não realizou o aditamento, não perca mais tempo e regularize sua situação.
+                            </td>
+                        </tr>
+                        {% endifequal %}
+                    {% endfor %}    
+
+                    {% for stt in status %}
+                        {% ifequal stt.status_bolsa "1" %}
+                        <tr>
+                            <td class="">
+                                <b>Canal Conecta</b>
+                            </td>
+                            <td class="">
+                            Temos uma vaga de emprego pra você, entre no portal do canal conecta e acesse a vaga.
+                            </td>
+                        </tr>
+                        {% endifequal %}
+                    {% endfor %}   
+
                 </table>
 
                 </div>
@@ -108,10 +160,24 @@
 
 <br><br><br><br><br><br><br>
 
-
+ 
 {% for alunos in aluno %}
     <h1 class="textcenter"><b>Olá, {{ alunos.alu_nome }}</b></h1>
 {% endfor %}
+ 
+
+<!-- {% for stt in status %}
+    
+    {% ifequal stt.status_ajuste "0" %}
+        <h1 class="textcenter"><b>{{ stt.status_ajuste }}</b></h1>
+    {% endifequal  %}
+
+    <h1 class="textcenter"><b>{{ stt.status_bolsa }}</b></h1>
+    <h1 class="textcenter"><b>{{ stt.status_card }}</b></h1>
+    <h1 class="textcenter"><b>{{ stt.status_rematricula }}</b></h1>
+    <h1 class="textcenter"><b>{{ stt.status_boleto }}</b></h1>
+{% endfor %} -->
+
 <br>
 
 <table class="tabela textomenu">
@@ -140,13 +206,13 @@
     </tr>
     <tr height="7"></tr>
     <tr>
-        <td class="tdtext tdcolor6">
+        <td class="tdtext tdcolor5">
             <a href="/convenio"><b>CONVÊNIOS</b></a>
         </td>
     </tr>
     <tr height="7"></tr>
     <tr>
-        <td class="tdtext tdcolor5">
+        <td class="tdtext tdcolor6">
             <a href="/info"><b>INFORMAÇÕES</b></a>
         </td>
     </tr>
@@ -158,10 +224,10 @@
 
     <tr>
         <td class="">
-            <a href="http://api.whatsapp.com/send?1=pt_BR&phone=5512981901892"> <img src="https://png.icons8.com/color/100/ecf0f1/whatsapp.png "width="30" ><br><b>Rematrícula</b></a>
+            <a href="http://api.whatsapp.com/send?1=pt_BR&phone=5512981901892"><img src="https://png.icons8.com/color/100/ecf0f1/whatsapp.png "width="30" ><br><b>Rematrícula</b></a>
         </td>
         <td class="">
-            <a href="http://api.whatsapp.com/send?1=pt_BR&phone=5512981901892"> <img src="https://png.icons8.com/color/100/ecf0f1/whatsapp.png "width="30" ><br><b>Secretaria</b></a>
+            <a href="http://api.whatsapp.com/send?1=pt_BR&phone=5512981901892"><img src="https://png.icons8.com/color/100/ecf0f1/whatsapp.png "width="30" ><br><b>Secretaria</b></a>
         </td>
     </tr>
 

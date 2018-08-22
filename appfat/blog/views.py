@@ -49,7 +49,13 @@ def home(request):
         
     # first_nome = str(aluno.alu_nome).split(' ')
     # return render(request, 'blog/home.html', {'aluno':aluno})
-    return render(request, 'blog/home.html', {'aluno':aluno})
+    list_status = Status
+    status = Status.objects.filter(status_cpf=request.user) #tabela atenção
+    # for stt in status:
+    #     list_status. = stt
+    
+
+    return render(request, 'blog/home.html', {'aluno':aluno, 'status':status})
 
 @login_required
 def boleto(request):
