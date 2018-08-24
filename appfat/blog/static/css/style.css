@@ -34,12 +34,17 @@
 }
 
 .tdtext {
+    text-align: center;
     height: 20px;
     border-radius: 15px 0px 50px 0px;
     color: rgb(49, 49, 49);
 }
+tdtext:hover {
+    color :rgba(255, 254, 254, 0.726);
+}
 
 .textomenu{font-size: 18px; color :rgb(49, 49, 49);}
+textomenu:hover{color :rgba(255, 254, 254, 0.726);}
 .textomenu2{font-size: 13px; color: rgb(49, 49, 49);}
 /* .tdcolor1 { background-color: #FF7043; } 
 .tdcolor2 { background-color: #FF5722; }
@@ -106,5 +111,49 @@ a:link, a:visited, a:active {
 
 .modal-header{
     background-color:#FF5722;
-    color: rgb(248, 248, 248)
+    color: rgb(248, 248, 248);
+    radius: 10px 0px 25px 0px;
 }
+
+.button {
+    
+    border-radius: 10px 0px 25px 0px;
+    background-color: #FF5722;
+    border: none;
+    color: white;
+    padding: 10px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 14px;
+    margin: 4px 2px;
+    cursor: pointer;
+}
+.button:hover{
+    background: #E64A19
+}
+
+.btntable {
+    width: 100%;
+    min-width: 109px;
+    max-width: 109;
+    border-radius: 5px 0px 25px 0px;
+    border: none;
+    padding: 3px 109;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+}
+.btntable:hover{
+    background: rgb(250, 72, 1);
+    color :rgba(255, 254, 254, 0.726);
+    
+}
+.btntable:focus, .btntable::-moz-focus-inner{
+    outline:none;
+    border:none;
+  }
+/* checkbox*/

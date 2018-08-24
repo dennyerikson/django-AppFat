@@ -1,7 +1,6 @@
 {% load static %}
 <!DOCTYPE html>
 <html lang="en">
-
     <head>
 
         <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -56,6 +55,7 @@
                                 Entre no seu portal e realize o Ajuste de Horário.
                             </td>
                         </tr>
+
                         {% endifequal %}
                     
                     {% endfor %}
@@ -136,6 +136,19 @@
                             </td>
                         </tr>
                         {% endifequal %}
+                    {% endfor %}  
+                    
+                    {% for stt in status %}
+                        {% ifequal stt.status_status "1" %}
+                        <tr>
+                            <td class="">
+                                <b>Sala Especial</b>
+                            </td>
+                            <td class="">
+                            As inscrições estarão abertas a partir do dia 30/08, no seu portal do aluno.
+                            </td>
+                        </tr>
+                        {% endifequal %}
                     {% endfor %}   
 
                 </table>
@@ -143,20 +156,130 @@
                 </div>
 
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                    <button type="button" id="btnopen" class="button" data-dismiss="modal">Close</button>
                 </div>
             </div>
 
             </div>
         </div>
 
-        <!-- script para carregar modal ao iniciar a pagina 27/07/2018 -->
-        <script>
-            $(document).ready(function(){
-                $('#myModal').modal('show');
-            });
-        </script>
+        <!-- Modal 2 -->
+        <div id="myModal2" class="modal fade" role="dialog">
+                <div class="modal-dialog">
+                    <!-- inserindo modal 27/07/2018 -->
+                    <div class="modal-content">
+                        <div class="modal-header">
+                           <h4 class="modal-title">Precisamos da sua opnião!</h4>
+                        </div>
+                        <div class="modal-body">
+                            <table align="center" class="tabelamodal">
+                                    <tr>
+                                        <td colspan="2">
+                                                <h5><b>Você indicaria a faculdade para um amigo?</b></h5>
+                                        </td>
+                                    </tr>
+                            </table>
+                            <table align="center">
+                                    <tr>
+                                       <td>&nbsp;<b>00</b></td>
+                                       <td>&nbsp;<b>01</b></td>
+                                       <td>&nbsp;<b>02</b></td>
+                                       <td>&nbsp;<b>03</b></td>
+                                       <td>&nbsp;<b>04</b></td>
+                                       <td>&nbsp;<b>05</b></td>
+                                       <td>&nbsp;<b>06</b></td>
+                                       <td>&nbsp;<b>07</b></td>
+                                       <td>&nbsp;<b>08</b></td>
+                                       <td>&nbsp;<b>09</b></td>
+                                       <td>&nbsp;<b>10</b></td>
+                                    </tr>
+                                    <tr>   
+                                        
+                                        <form action="" method="post">
+                                            <td><input type="radio" name="display_type" value="0" data-dismiss="modal">&nbsp;</input>&nbsp;&nbsp;</td>
+                                            <td><input type="radio" name="display_type" value="1" data-dismiss="modal">&nbsp;</input>&nbsp;&nbsp;</td>
+                                            <td><input type="radio" name="display_type" value="2" data-dismiss="modal">&nbsp;</input>&nbsp;&nbsp;</td>
+                                            <td><input type="radio" name="display_type" value="3" data-dismiss="modal">&nbsp;</input>&nbsp;&nbsp;</td>
+                                            <td><input type="radio" name="display_type" value="4" data-dismiss="modal">&nbsp;</input>&nbsp;&nbsp;</td>
+                                            <td><input type="radio" name="display_type" value="5" data-dismiss="modal">&nbsp;</input>&nbsp;&nbsp;</td>
+                                            <td><input type="radio" name="display_type" value="6" data-dismiss="modal">&nbsp;</input>&nbsp;&nbsp;</td>
+                                            <td><input type="radio" name="display_type" value="7" data-dismiss="modal">&nbsp;</input>&nbsp;&nbsp;</td>
+                                            <td><input type="radio" name="display_type" value="8" data-dismiss="modal">&nbsp;</input>&nbsp;&nbsp;</td>
+                                            <td><input type="radio" name="display_type" value="9" data-dismiss="modal">&nbsp;</input>&nbsp;&nbsp;</td>
+                                            <td><input type="radio" name="display_type" value="10" data-dismiss="modal">&nbsp;</input>&nbsp;&nbsp;</td>
+                                        </form>
 
+                                        <!-- <td><button style="width:20px" type="button" id="close0" value="0" data-dismiss="modal">&nbsp;</button>&nbsp;&nbsp;</td>                                        
+                                        <td><button style="width:20px" type="button" id="close1" value="1" data-dismiss="modal">&nbsp;</button>&nbsp;&nbsp;</td>
+                                        <td><button style="width:20px" type="button" id="close2" value="2" data-dismiss="modal">&nbsp;</button>&nbsp;&nbsp;</td>
+                                        <td><button style="width:20px" type="button" id="close3" value="3" data-dismiss="modal">&nbsp;</button>&nbsp;&nbsp;</td>
+                                        <td><button style="width:20px" type="button" id="close4" value="4" data-dismiss="modal">&nbsp;</button>&nbsp;&nbsp;</td>
+                                        <td><button style="width:20px" type="button" id="close5" value="5" data-dismiss="modal">&nbsp;</button>&nbsp;&nbsp;</td>
+                                        <td><button style="width:20px" type="button" id="close6" value="6" data-dismiss="modal">&nbsp;</button>&nbsp;&nbsp;</td>
+                                        <td><button style="width:20px" type="button" id="close7" value="7" data-dismiss="modal">&nbsp;</button>&nbsp;&nbsp;</td>
+                                        <td><button style="width:20px" type="button" id="close8" value="8" data-dismiss="modal">&nbsp;</button>&nbsp;&nbsp;</td>
+                                        <td><button style="width:20px" type="button" id="close9" value="9" data-dismiss="modal">&nbsp;</button>&nbsp;&nbsp;</td>
+                                        <td><button style="width:20px" type="button" id="close10" value="10" data-dismiss="modal">&nbsp;</button></td> -->
+                                    </tr>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+        <!-- Modal 3 -->
+        <div id="myModal3" class="modal fade" role="dialog">
+                <div class="modal-dialog">
+                    <!-- inserindo modal 27/07/2018 -->
+                    <div class="modal-content">
+                        <div class="modal-body">
+                            <table class="tabelamodal">
+                                <tr><td>&nbsp;</td></tr>
+                                <tr>
+                                    <td>
+                                        <b>OBRIGADO PELA SUA OPINIÃO!</b>
+                                    </td>
+                                </tr>
+                                <tr><td>&nbsp;</td></tr>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        {% for value in status %}
+            {% if value.status_status == "1" or value.status_bolsa == "1" or value.status_ajuste == "1" or value.status_card == "1" or value.status_rematricula == "1" or value.status_boleto == "1"%}              
+                <!-- script para carregar modal ao iniciar a pagina 27/07/2018 -->
+                <script>
+                    $(document).ready(function(){
+                        $('#myModal').modal('show');
+                    });  
+
+                                             
+                </script>
+                <!-- verificação de pesquisa 24/08/2018 -->
+                {% for s in sats %}
+
+                    {% ifequal s.sats_check "0"%}
+                       <script>
+                            $("#btnopen").on('click', function () {
+                                $('#myModal2').modal('show');
+                            });
+            
+                            $("#close0, #close1, #close2, #close3, #close4, #close5, #close6, #close7, #close8, #close9, #close10").on('click', function () {
+                                $('#myModal3').modal('show');
+                                setTimeout(function(){
+                                    $('#myModal3').modal('hide');
+                                }, 2000);
+                            }); 
+                       </script>
+                   {% endifequal %}
+                {% endfor %}
+            {% endif %}
+        {% endfor %}
+
+        
+      
 
 <br><br><br><br><br><br><br>
 
@@ -181,42 +304,51 @@
 <br>
 
 <table class="tabela textomenu">
+        <tr>
+            <td class="tdtext tdcolor1">
+                <a href="{% url 'boleto' %}"><b>BOLETOS</b></a>
+            </td>
+        </tr>
+        <tr height="7"></tr>
+         <tr>
+            <td class="tdtext tdcolor2">
+                <a href="/curso"> <b>MEU CURSO</b></a>
+            </td>
+        </tr>
+         <tr height="7"></tr>
+        <tr>
+            <td class="tdtext tdcolor3">
+                <a href="/sala"> <b>SALA ESPECIAL</b></a>
+            </td>
+        </tr>
+         <tr height="7"></tr>
+        <tr>
+            <td class="tdtext tdcolor4">
+                <a href="/conecta"><b>CANAL CONECTA</b></a>
+            </td>
+        </tr>
+        <tr height="7"></tr>
+        <tr>
+            <td class="tdtext tdcolor6">
+                <a href="/convenio"><b>CONVÊNIOS</b></a>
+            </td>
+        </tr>
+        <tr height="7"></tr>
+        <tr>
+            <td class="tdtext tdcolor5">
+                <a href="/info"><b>INFORMAÇÕES</b></a>
+            </td>
+        </tr>
+    </table>
+
+<!-- <table class="tabela textomenu">
     <tr>
-        <td class="tdtext tdcolor1">
-            <a href="{% url 'boleto' %}"><b>BOLETOS</b></a>
+        <td class="tdtext"> -->
+            <!-- <a href="{% url 'boleto' %}"><b>BOLETOS</b></a> -->
+            <!-- <button class="btntable tdcolor1"><b>BOLETOS</b><a href="{% url 'boleto' %}"></a></a></button>
         </td>
-    </tr>
-    <tr height="7"></tr>
-     <tr>
-        <td class="tdtext tdcolor2">
-            <a href="/curso"> <b>MEU CURSO</b></a>
-        </td>
-    </tr>
-     <tr height="7"></tr>
-    <tr>
-        <td class="tdtext tdcolor3">
-            <a href="/sala"> <b>SALA ESPECIAL</b></a>
-        </td>
-    </tr>
-     <tr height="7"></tr>
-    <tr>
-        <td class="tdtext tdcolor4">
-            <a href="/conecta"><b>CANAL CONECTA</b></a>
-        </td>
-    </tr>
-    <tr height="7"></tr>
-    <tr>
-        <td class="tdtext tdcolor5">
-            <a href="/convenio"><b>CONVÊNIOS</b></a>
-        </td>
-    </tr>
-    <tr height="7"></tr>
-    <tr>
-        <td class="tdtext tdcolor6">
-            <a href="/info"><b>INFORMAÇÕES</b></a>
-        </td>
-    </tr>
-</table>
+    </tr>   
+</table> -->
 
 <br>
 

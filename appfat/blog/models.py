@@ -94,6 +94,7 @@ class Status(models.Model):
 class Info(models.Model):
 
     info_author = models.ForeignKey('auth.User', on_delete=models.CASCADE)
+    info_title = models.CharField(max_length=100)
     info_informacao = models.TextField() 
     
     created_date = models.DateTimeField(
@@ -112,3 +113,73 @@ class Info(models.Model):
 
     # object PostManager()
 
+class Sats(models.Model):
+    sats_cpf = models.CharField(max_length=11)
+    sats_check = models.CharField(max_length=2)
+    sats_quest_01 = models.CharField(max_length=2)
+    created_date = models.DateTimeField(
+    default = timezone.now)
+
+    published_date = models.DateTimeField(
+        blank=True, null=True)
+
+    def publish(self):
+        self.published_date = timezone.now()
+        self.save()
+
+
+    def __str__(self):
+        return self.sats_check
+
+# model de boletos
+class Boleto(models.Model):
+    boleto= models.CharField(max_length=150) #nome titulo
+    data= models.CharField(max_length=30) #data titulo
+    status= models.CharField(max_length=30) #status titulo
+    published_date = models.DateTimeField(
+        blank=True, null=True)
+
+    def publish(self):
+        self.published_date = timezone.now()
+        self.save()
+
+    def __str__(self):
+        return self.boleto
+
+#model do curso
+class Cuso(models.Model):
+    cur_nome = models.CharField(max_length=150)
+    cur_status = models.CharField(max_length=150) 
+    cur_prof = models.CharField(max_length=150)
+    cur_contato = models.CharField(max_length=150)
+    cur_nome_coor = models.CharField(max_length=150)
+    cur_cont_coor= models.CharField(max_length=150)
+
+    def __str__(self):
+        return self.cur_nome
+
+#sala especial
+class Sala(models.Model):
+    sala_dis = models.TextField(max_length=300)
+    sala_dados = models.TextField(max_length=150)
+    sala_sala = models.TextField(max_length=30)
+
+    def __str__(self):
+        return self.sala_dis
+
+#conecta
+class Conecta(models.Model):
+    con_vaga = models.TextField(max_length=300)
+    con_id = models.TextField(max_length=30)
+
+    def __str__(self):
+        return self.con_vaga
+    
+#convenio e parcerias
+class Convenio(models.Model):
+    conv_title = models.TextField(max_length=100)
+    conv_info = models.TextField(max_length=300)
+
+    def __str__(self):
+        return self.conv_title
+        

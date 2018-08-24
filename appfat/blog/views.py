@@ -1,13 +1,13 @@
 # -*-coding: utf-8 -*-";
+from django.utils import timezone
 import csv
 from django.shortcuts import render, redirect
 from django.utils import timezone
-from .models import Post, Aluno, Status, Info
+from .models import Post, Aluno, Status, Info, Sats
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth import authenticate, login
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.admin import User
-
 
 # def user(request):
 #     user = request.user
@@ -45,17 +45,22 @@ nome = []
 @login_required
 def home(request):
     aluno = Aluno.objects.filter(alu_cpf=request.user) #dados aluno
-    # aluno = Aluno.alu_nome.filter(alu_cpf=request.user).only('alu_nome') #dados aluno
-        
-    # first_nome = str(aluno.alu_nome).split(' ')
-    # return render(request, 'blog/home.html', {'aluno':aluno})
-    list_status = Status
     status = Status.objects.filter(status_cpf=request.user) #tabela atenção
-    # for stt in status:
-    #     list_status. = stt
-    
 
-    return render(request, 'blog/home.html', {'aluno':aluno, 'status':status})
+
+    # get status pesquisa
+    sats = Sats.objects.filter(sats_cpf=request.user)
+    # if(sats.sats_check == 0):
+    #     if request.method == "POST":
+    #         display_type = request.POST.get("display_type", None)
+    #     if display_type in ["0","1","2","3","4","5","6","7","8","9","10"]:
+    #         sats.sats_cpf = request.user
+    #         sats.sats_check = "1"
+    #         sats.sats_quest_01 = display_type
+    #         sats.created_date = timezone.now()
+    #         sats.save()
+
+    return render(request, 'blog/home.html', {'aluno':aluno, 'status':status, 'sats':sats})
 
 @login_required
 def boleto(request):
@@ -98,3 +103,20 @@ def info(request):
 #     lista = []
 #     dados_csv = csv.reader(open())
 #     return render(request, {})
+
+def sats(request):
+    sats = Sats.objects.filter(sats_cpf=request.user)
+    if(len(sats) <= 0):
+        if request.method == "POST":
+            display_type = request.POST.get("display_type", None)
+        if display_type in ["0","1","2","3","4","5","6","7","8","9","10"]:
+            sats.sats_cpf = request.user
+            sats.sats_check = "1"
+            sats.sats_quest_01 = display_type
+            sats.created_date = timezone.now()
+            sats.save()
+    return render(request, 'blog/home.html', {'sats':sats})
+
+    
+    
+            
