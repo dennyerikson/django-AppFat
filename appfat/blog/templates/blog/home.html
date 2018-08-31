@@ -175,7 +175,7 @@
                             <table align="center" class="tabelamodal">
                                     <tr>
                                         <td colspan="2">
-                                                <h5><b>Você indicaria a faculdade para um amigo?</b></h5>
+                                            <h5><b>Você indicaria a faculdade para um amigo?</b></h5>
                                         </td>
                                     </tr>
                             </table>
@@ -195,19 +195,30 @@
                                     </tr>
                                     <tr>   
                                         
-                                        <form action="" method="post">
-                                            <td><input type="radio" name="display_type" value="0" data-dismiss="modal">&nbsp;</input>&nbsp;&nbsp;</td>
-                                            <td><input type="radio" name="display_type" value="1" data-dismiss="modal">&nbsp;</input>&nbsp;&nbsp;</td>
-                                            <td><input type="radio" name="display_type" value="2" data-dismiss="modal">&nbsp;</input>&nbsp;&nbsp;</td>
-                                            <td><input type="radio" name="display_type" value="3" data-dismiss="modal">&nbsp;</input>&nbsp;&nbsp;</td>
-                                            <td><input type="radio" name="display_type" value="4" data-dismiss="modal">&nbsp;</input>&nbsp;&nbsp;</td>
-                                            <td><input type="radio" name="display_type" value="5" data-dismiss="modal">&nbsp;</input>&nbsp;&nbsp;</td>
-                                            <td><input type="radio" name="display_type" value="6" data-dismiss="modal">&nbsp;</input>&nbsp;&nbsp;</td>
-                                            <td><input type="radio" name="display_type" value="7" data-dismiss="modal">&nbsp;</input>&nbsp;&nbsp;</td>
-                                            <td><input type="radio" name="display_type" value="8" data-dismiss="modal">&nbsp;</input>&nbsp;&nbsp;</td>
-                                            <td><input type="radio" name="display_type" value="9" data-dismiss="modal">&nbsp;</input>&nbsp;&nbsp;</td>
-                                            <td><input type="radio" name="display_type" value="10" data-dismiss="modal">&nbsp;</input>&nbsp;&nbsp;</td>
-                                        </form>
+                                        <!-- <form method="POST" class="post-form">{% csrf_token %}
+                                            {{ form.as_p }}
+                                            <button type="submit" class="button">Enviar</button>
+                                        </form> -->
+                                    <form action="submission.html" method="get" onsubmit="return isChecked();"> 
+                                        
+                                            Yes<input type="radio" name="coding" value ="Yes" id="like"/><br/>
+                                            No<input type="radio" name="coding" value ="No" id="dislike"/><br/>
+                                        
+                                        <td><input type="radio" name="rb_type" value="0" >&nbsp;</input>&nbsp;&nbsp;</td>
+                                        <td><input type="radio" name="rb_type" value="1" >&nbsp;</input>&nbsp;&nbsp;</td>
+                                        <td><input type="radio" name="rb_type" value="2" >&nbsp;</input>&nbsp;&nbsp;</td>
+                                        <td><input type="radio" name="rb_type" value="3" >&nbsp;</input>&nbsp;&nbsp;</td>
+                                        <td><input type="radio" name="rb_type" value="4" >&nbsp;</input>&nbsp;&nbsp;</td>
+                                        <td><input type="radio" name="rb_type" value="5" >&nbsp;</input>&nbsp;&nbsp;</td>
+                                        <td><input type="radio" name="rb_type" value="6" >&nbsp;</input>&nbsp;&nbsp;</td>
+                                        <td><input type="radio" name="rb_type" value="7" >&nbsp;</input>&nbsp;&nbsp;</td>
+                                        <td><input type="radio" name="rb_type" value="8" >&nbsp;</input>&nbsp;&nbsp;</td>
+                                        <td><input type="radio" name="rb_type" value="9" >&nbsp;</input>&nbsp;&nbsp;</td>
+                                        <td><input type="radio" name="rb_type" value="10" >&nbsp;</input>&nbsp;&nbsp;</td>
+
+                                        <!-- <td><button type="submit" class="button" id="btn_close" data-dismiss="modal">Enviar</button></td> -->
+                                        <td><input class="button" type="submit" value="submit"/></td>
+                                    </form>        
 
                                         <!-- <td><button style="width:20px" type="button" id="close0" value="0" data-dismiss="modal">&nbsp;</button>&nbsp;&nbsp;</td>                                        
                                         <td><button style="width:20px" type="button" id="close1" value="1" data-dismiss="modal">&nbsp;</button>&nbsp;&nbsp;</td>
@@ -237,6 +248,7 @@
                                 <tr><td>&nbsp;</td></tr>
                                 <tr>
                                     <td>
+                                        <b>{{ valor_rb }}</b>
                                         <b>OBRIGADO PELA SUA OPINIÃO!</b>
                                     </td>
                                 </tr>
@@ -257,16 +269,16 @@
 
                                              
                 </script>
-                <!-- verificação de pesquisa 24/08/2018 -->
-                {% for s in sats %}
-
-                    {% ifequal s.sats_check "0"%}
+                <!-- verificação de pesquisa 24/08/2018 -->              
+                    <!-- {{sats.sats_cpf}} get um unico ibjeto do sats -->
+                    {% ifequal sats.sats_check "1"%}
                        <script>
                             $("#btnopen").on('click', function () {
                                 $('#myModal2').modal('show');
                             });
             
-                            $("#close0, #close1, #close2, #close3, #close4, #close5, #close6, #close7, #close8, #close9, #close10").on('click', function () {
+                            // $("#close0, #close1, #close2, #close3, #close4, #close5, #close6, #close7, #close8, #close9, #close10").on('click', function () {
+                            $("#btn_close").on('click', function () {
                                 $('#myModal3').modal('show');
                                 setTimeout(function(){
                                     $('#myModal3').modal('hide');
@@ -274,9 +286,27 @@
                             }); 
                        </script>
                    {% endifequal %}
-                {% endfor %}
+                 
+                
             {% endif %}
         {% endfor %}
+
+        <script type="text/javascript">
+        
+        function isChecked(){
+            var checkedYes = document.getElementById('like').checked;
+            var checkedNo = document.getElementById('dislike').checked;    
+            
+            if(checkedYes == false && checkedNo == false){
+                alert('You need to select an option!');
+                return false;
+            }
+            else{                
+                return true;
+            }
+        }
+        </script>      
+        
 
         
       
@@ -337,6 +367,12 @@
         <tr>
             <td class="tdtext tdcolor5">
                 <a href="/info"><b>INFORMAÇÕES</b></a>
+            </td>
+        </tr>
+        <tr height="7"></tr>
+        <tr>
+            <td class="tdtext tdcolor7">
+                <a href="/tutoriais"><b>TUTORIAIS</b></a>
             </td>
         </tr>
     </table>

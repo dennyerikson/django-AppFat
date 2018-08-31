@@ -2,12 +2,14 @@
 from django.utils import timezone
 import csv
 from django.shortcuts import render, redirect
-from django.utils import timezone
-from .models import Post, Aluno, Status, Info, Sats
+from .models import *
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth import authenticate, login
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.admin import User
+from .forms import SatsForm, SimpleForm
+from django.shortcuts import render, get_object_or_404
+
 
 # def user(request):
 #     user = request.user
@@ -45,44 +47,80 @@ nome = []
 @login_required
 def home(request):
     aluno = Aluno.objects.filter(alu_cpf=request.user) #dados aluno
+    
     status = Status.objects.filter(status_cpf=request.user) #tabela atenção
 
+    sats, created = Sats.objects.get_or_create(sats_cpf=request.user, defaults={
+        'sats_cpf':request.user, 'sats_check':'0','sats_quest_01':'0'
+    })
 
-    # get status pesquisa
-    sats = Sats.objects.filter(sats_cpf=request.user)
-    # if(sats.sats_check == 0):
-    #     if request.method == "POST":
-    #         display_type = request.POST.get("display_type", None)
-    #     if display_type in ["0","1","2","3","4","5","6","7","8","9","10"]:
-    #         sats.sats_cpf = request.user
-    #         sats.sats_check = "1"
-    #         sats.sats_quest_01 = display_type
-    #         sats.created_date = timezone.now()
-    #         sats.save()
+    valor_rb = request.POST.get('rb_type')
+    # post = get_object_or_404(Profile, pk=sats.id)
+    # if request.method == "POST":        
+    #     form = SatsForm(request.POST, instance=post)
+    #     if form.is_valid():
+    #         post = form.save(commit=False)
+    #         post.save()
+    # else:    
+    #     form = SatsForm(instance=sats)
+   
 
-    return render(request, 'blog/home.html', {'aluno':aluno, 'status':status, 'sats':sats})
+    # form = SimpleForm()
 
+    context = {'aluno':aluno, 'status':status, 'sats':sats, 'valor_rb': valor_rb}
+
+    return render(request, 'blog/home.html', context)
+
+""" BOLETOS """
 @login_required
 def boleto(request):
-    return render(request, 'blog/boleto.html', {})
+    boleto = Boleto.objects.filter(bol_cpf=request.user)
+    return render(request, 'blog/boleto.html', {'boleto':boleto})
+
+""" CURSO """
 @login_required
 def curso(request):
-    return render(request, 'blog/curso.html', {})
+
+    aluno = Aluno.objects.get(alu_cpf=request.user) #dados aluno
+    curso = Curso.objects.filter(cur_nome=aluno.alu_curso)
+    
+    for c in curso:
+        coord = c
+
+    context = {'curso':curso, 'aluno':aluno, 'coord':coord}
+
+    return render(request, 'blog/curso.html', context)
+
+""" SALA """
 @login_required
 def sala(request):
-    return render(request, 'blog/sala.html', {})
+    sala = Sala.objects.filter(sala_cpf=request.user)
+    return render(request, 'blog/sala.html', {'sala':sala})
+
+""" CONECTA """
 @login_required
 def conecta(request):
-    return render(request, 'blog/conecta.html', {})
+    aluno = Aluno.objects.get(alu_cpf=request.user) #dados aluno
+    conecta = Conecta.objects.filter(con_curso=aluno.alu_curso)
+    return render(request, 'blog/conecta.html', {'conecta':conecta})
+
+""" CONVENIO """
 @login_required
 def convenio(request):
-    return render(request, 'blog/convenio.html', {})
+    convenio = Convenio.objects.filter()
+    return render(request, 'blog/convenio.html', {'convenio':convenio})
 
+""" INFORMAÇÃO """
 @login_required
 def info(request):
     info = Info.objects.filter() #tabela informação
     context = {'info':info}
     return render(request, 'blog/info.html', context)
+
+""" TUTORIAIS """
+@login_required
+def tutoriais(request):    
+    return render(request, 'blog/tutoriais.html', {})
 
 # def login(request):
 #     return render(request, 'login.html')
@@ -104,18 +142,18 @@ def info(request):
 #     dados_csv = csv.reader(open())
 #     return render(request, {})
 
-def sats(request):
-    sats = Sats.objects.filter(sats_cpf=request.user)
-    if(len(sats) <= 0):
-        if request.method == "POST":
-            display_type = request.POST.get("display_type", None)
-        if display_type in ["0","1","2","3","4","5","6","7","8","9","10"]:
-            sats.sats_cpf = request.user
-            sats.sats_check = "1"
-            sats.sats_quest_01 = display_type
-            sats.created_date = timezone.now()
-            sats.save()
-    return render(request, 'blog/home.html', {'sats':sats})
+# def sats(request):
+#     sats = Sats.objects.filter(sats_cpf=request.user)
+#     if(len(sats) <= 0):
+#         if request.method == "POST":
+#             display_type = request.POST.get("display_type", None)
+#         if display_type in ["0","1","2","3","4","5","6","7","8","9","10"]:
+#             sats.sats_cpf = request.user
+#             sats.sats_check = "1"
+#             sats.sats_quest_01 = display_type
+#             sats.created_date = timezone.now()
+#             sats.save()
+#     return render(request, 'blog/home.html', {'sats':sats})
 
     
     

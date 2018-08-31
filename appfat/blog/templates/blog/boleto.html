@@ -13,6 +13,7 @@
 
 
 <!-- inicio laço -->
+{% for bol in boleto %}
 <BR>
 <table class="tabledados">
   <tr>
@@ -21,19 +22,20 @@
   <tr>
     <td class="tamanho"><b>BOLETO</b></td>
     <td class="">-</td>
-    <td class="">VARIAVEL</td>
+    <td class="">{{bol.boleto}}</td>
   </tr>
   <tr>
     <td class="bc bb tamanho"><b>DATA</b></td>
     <td class="bc bb">-</td>
-    <td class="bc bb">VARIAVEL</td>
+    <td class="bc bb">{{bol.data}}</td>
   </tr>
   <tr>
     <td class="tamanho"><b>STATUS</b></td>
     <td class="">-</td>
-    <td class="">VARIAVEL</td>
+    <td class="">{{bol.status}}</td>
   </tr>
 </table>
+{% endfor %}
 <!-- fim laço -->
 
 

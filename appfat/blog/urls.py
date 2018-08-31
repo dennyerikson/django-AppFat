@@ -14,6 +14,7 @@ urlpatterns = [
     url('conecta/',views.conecta, name='conecta'),
     url('convenio/', views.convenio, name='convenio'),
     url('info/', views.info, name='info'),
+    url('tutoriais/', views.tutoriais, name='tutoriais'),
 
 
 ]

@@ -13,7 +13,6 @@
 </div>
 <BR>
 
-
 <table class="tabledados">
   <tr>
       <td class="beck bb" colspan="3"><B>INFORMAÇÕES</B></td>
@@ -21,29 +20,31 @@
   <tr>
       <td class="tamanho"><b>CURSO</b></td>
     <td class="">-</td>
-    <td class="">VARIAVEL</td>
+    <td class="">{{ aluno.alu_curso }}</td>
   </tr>
   <tr>
       <td class="bc bb tamanho"><b>STATUS</b></td>
     <td class="bc bb">-</td>
-    <td class="bc bb">VARIAVEL</td>
+    <td class="bc bb">{{ aluno.alu_status }}</td>
   </tr>
      <tr><td class="bb" colspan="3"></td></tr>
 
      
 <!-- inicio laço -->
-  <tr><td class="bb" colspan="3"></td></tr>
-  <tr>
-    <td class="tamanho bb"><b>PROFESSOR</b></td>
-    <td class="bb">-</td>
-    <td class="bb">VARIAVEL</td>
-  </tr>
-   <tr>
-      <td class="tamanho bb"><b>CONTATO</b></td>
-    <td class="bb">-</td>
-    <td class="bb">VARIAVEL</td>
-  </tr>
-    <tr><td class="bb" colspan="3"></td></tr>
+  {%for prof in curso %}
+      <tr><td class="bb" colspan="3"></td></tr>
+      <tr>
+        <td class="tamanho bb"><b>PROFESSOR</b></td>
+        <td class="bb">-</td>
+        <td class="bb">{{prof.cur_prof}}</td>
+      </tr>
+      <tr>
+          <td class="tamanho bb"><b>CONTATO</b></td>
+        <td class="bb">-</td>
+        <td class="bb">{{prof.cur_contato}}</td>
+      </tr>
+        <tr><td class="bb" colspan="3"></td></tr>
+    {% endfor %}
 <!-- fim laço -->
 
 
@@ -51,12 +52,12 @@
   <tr>
       <td class="tamanho bb"><b>COORDENADOR</b></td>
     <td class="bb">-</td>
-    <td class="bb">VARIAVEL</td>
+    <td class="bb">{{coord.cur_nome_coor}}</td>
   </tr>
    <tr>
       <td class="tamanho"><b>CONTATO</b></td>
     <td class="">-</td>
-    <td class="">VARIAVEL</td>
+    <td class="">{{coord.cur_cont_coor}}</td>
   </tr>
 </table>
 

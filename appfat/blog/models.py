@@ -22,6 +22,7 @@ class Aluno(models.Model):
     alu_cel=models.CharField(max_length=30)
     alu_email=models.CharField(max_length=150)
     alu_curso=models.CharField(max_length=200) # add coluna do curso 
+    alu_status=models.CharField(max_length=20)
 
     created_date = models.DateTimeField(
         default = timezone.now)
@@ -117,22 +118,32 @@ class Sats(models.Model):
     sats_cpf = models.CharField(max_length=11)
     sats_check = models.CharField(max_length=2)
     sats_quest_01 = models.CharField(max_length=2)
-    created_date = models.DateTimeField(
-    default = timezone.now)
-
-    published_date = models.DateTimeField(
-        blank=True, null=True)
-
-    def publish(self):
-        self.published_date = timezone.now()
-        self.save()
-
-
+   
     def __str__(self):
         return self.sats_check
 
+""" modelo radio button"""
+GENDER_CHOICES = (
+   ('rb1', '1'),
+   ('rb2', '2'),
+   ('rb3', '3'),
+   ('rb4', '4'),
+   ('rb5', '5'),
+   ('rb6', '6'),
+   ('rb7', '7'),
+   ('rb8', '8'),
+   ('rb9', '9'),
+   ('rb10', '10'),
+)
+class Profile(models.Model):
+    pro_cpf = models.CharField( max_length=11)
+    pro_check = models.CharField( max_length=10)
+    pro_gender = models.CharField(choices=GENDER_CHOICES, max_length=20)
+""" modelo radio button"""
+
 # model de boletos
 class Boleto(models.Model):
+    bol_cpf = models.CharField( max_length=11)
     boleto= models.CharField(max_length=150) #nome titulo
     data= models.CharField(max_length=30) #data titulo
     status= models.CharField(max_length=30) #status titulo
@@ -147,7 +158,7 @@ class Boleto(models.Model):
         return self.boleto
 
 #model do curso
-class Cuso(models.Model):
+class Curso(models.Model):
     cur_nome = models.CharField(max_length=150)
     cur_status = models.CharField(max_length=150) 
     cur_prof = models.CharField(max_length=150)
@@ -160,6 +171,7 @@ class Cuso(models.Model):
 
 #sala especial
 class Sala(models.Model):
+    sala_cpf = models.CharField(max_length=11)
     sala_dis = models.TextField(max_length=300)
     sala_dados = models.TextField(max_length=150)
     sala_sala = models.TextField(max_length=30)
@@ -171,6 +183,7 @@ class Sala(models.Model):
 class Conecta(models.Model):
     con_vaga = models.TextField(max_length=300)
     con_id = models.TextField(max_length=30)
+    con_curso = models.TextField(max_length=300)
 
     def __str__(self):
         return self.con_vaga
