@@ -110,6 +110,13 @@ a:link, a:visited, a:active {
     font-size: 12px   
 }
 
+.settings{
+    font-size: 10px; color: rgb(49, 49, 49);
+    margin-top: 9%;    
+    float: left;
+    margin-left: 3%;
+}
+
 .modal-header{
     background-color:#FF5722;
     color: rgb(248, 248, 248);

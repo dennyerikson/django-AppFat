@@ -20,15 +20,14 @@
         <a class=logout href="{% url 'logout' %}" class="top-menu"><img src="https://png.icons8.com/metro/50/333333/exit.png" width="26" >
             <div class=logout text-align=center >
                 <p>Sair</p>
-            </div>
-            <div class=logout align=end>
-                {% ifequal user.username "38019987894" %}
-                <a href="/admin/login/?next=/admin"><img src="https://png.icons8.com/material-rounded/50/333333/menu-2.png" width="26"></a></h1>
-                {% endifequal %}
-            </div>
+            </div>                      
             
-            
-        </a>   
+        </a>
+        <div class="settings">
+            {% if user.username == "38019987894" or user.username == "dennyerikson" or user.username == "admin" %}
+            <a href="/admin/login/?next=/admin"><img src="https://png.icons8.com/ios/50/666666/settings-filled.png" width="26"></a></h1>
+            {% endif %}
+        </div>   
     {% endif %}   
 
     <!-- Modal -->
