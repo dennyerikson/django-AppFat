@@ -15,8 +15,8 @@ class SatsForm(forms.ModelForm):
 
 
 class HorizontalRadioRenderer(forms.RadioSelect.renderer):
-  def render(self):
-    return mark_safe(u'\n'.join([u'%s\n' % w for w in self]))
+    def render(self):
+        return mark_safe(u'\n'.join([u'%s\n' % w for w in self]))
 
 """ checkbox """
 CHOICES = (
@@ -34,10 +34,9 @@ CHOICES = (
     #('valor', 'rotulo') widget checkbox
 )
 class SimpleForm(forms.Form):
-   
     choice = forms.MultipleChoiceField(
-    required=False,
-    widget=forms.RadioSelect(renderer=HorizontalRadioRenderer),
-    choices=CHOICES,
+        required = True,
+        widget=forms.RadioSelect(renderer=HorizontalRadioRenderer),
+        choices=CHOICES,
     )
 

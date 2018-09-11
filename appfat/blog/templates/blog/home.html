@@ -148,7 +148,18 @@
                             </td>
                         </tr>
                         {% endifequal %}
-                    {% endfor %}   
+                    {% endfor %} 
+                    
+                    {% ifequal sats.sats_check "1" %}
+                        <tr>
+                            <td class="">
+                                <b>Pesquisa</b>
+                            </td>
+                            <td class="">
+                                Por favor responda a pesquisa.
+                            </td>
+                        </tr>
+                    {% endifequal %}
 
                 </table>
 
@@ -179,7 +190,7 @@
                                     </tr>
                             </table>
                             <table align="center">
-                                    <tr>
+                                    <!-- <tr>
                                        <td>&nbsp;<b>00</b></td>
                                        <td>&nbsp;<b>01</b></td>
                                        <td>&nbsp;<b>02</b></td>
@@ -191,17 +202,15 @@
                                        <td>&nbsp;<b>08</b></td>
                                        <td>&nbsp;<b>09</b></td>
                                        <td>&nbsp;<b>10</b></td>
-                                    </tr>
+                                    </tr> -->
                                     <tr>   
                                         
-                                        <!-- <form method="POST" class="post-form">{% csrf_token %}
-                                            {{ form.as_p }}
+                                        <form action='#home' method="POST" class="post-form">
+                                            {% csrf_token %}
+                                            {{ radio_form.as_p }}
                                             <button type="submit" class="button">Enviar</button>
-                                        </form> -->
-                                    <form action="submission.html" method="get" onsubmit="return isChecked();"> 
-                                        
-                                            Yes<input type="radio" name="coding" value ="Yes" id="like"/><br/>
-                                            No<input type="radio" name="coding" value ="No" id="dislike"/><br/>
+                                        </form>
+                                    <!-- <form action="#home" method="POST">
                                         
                                         <td><input type="radio" name="rb_type" value="0" >&nbsp;</input>&nbsp;&nbsp;</td>
                                         <td><input type="radio" name="rb_type" value="1" >&nbsp;</input>&nbsp;&nbsp;</td>
@@ -216,8 +225,8 @@
                                         <td><input type="radio" name="rb_type" value="10" >&nbsp;</input>&nbsp;&nbsp;</td>
 
                                         <!-- <td><button type="submit" class="button" id="btn_close" data-dismiss="modal">Enviar</button></td> -->
-                                        <td><input class="button" type="submit" value="submit"/></td>
-                                    </form>        
+                                        <!-- <td><input class="button" type="submit" value="submit" data-dismiss="modal"/></td>
+                                    </form>         -->
 
                                         <!-- <td><button style="width:20px" type="button" id="close0" value="0" data-dismiss="modal">&nbsp;</button>&nbsp;&nbsp;</td>                                        
                                         <td><button style="width:20px" type="button" id="close1" value="1" data-dismiss="modal">&nbsp;</button>&nbsp;&nbsp;</td>
@@ -259,7 +268,7 @@
             </div>
 
         {% for value in status %}
-            {% if value.status_status == "1" or value.status_bolsa == "1" or value.status_ajuste == "1" or value.status_card == "1" or value.status_rematricula == "1" or value.status_boleto == "1"%}              
+            {% if value.status_status == "1" or value.status_bolsa == "1" or value.status_ajuste == "1" or value.status_card == "1" or value.status_rematricula == "1" or value.status_boleto == "1" or sats.sats_check == "1"%}              
                 <!-- script para carregar modal ao iniciar a pagina 27/07/2018 -->
                 <script>
                     $(document).ready(function(){

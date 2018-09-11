@@ -51,10 +51,28 @@ def home(request):
     status = Status.objects.filter(status_cpf=request.user) #tabela atenção
 
     sats, created = Sats.objects.get_or_create(sats_cpf=request.user, defaults={
-        'sats_cpf':request.user, 'sats_check':'0','sats_quest_01':'0'
+        'sats_cpf':request.user, 'sats_check':'1','sats_quest_01':'0'
     })
 
-    valor_rb = request.POST.get('rb_type')
+    """ get choices """
+    if request.method == "POST": 
+        radio_form = SimpleForm(request.GET.get('choice'))
+        if radio_form.is_valid:                       
+            valor_rb = request.POST.get('choice')      
+            print('valor choice: {}'.format(valor_rb))
+            try:
+                sats.sats_check = '0'
+                sats.sats_quest_01 = str(valor_rb)
+                sats.save() 
+            except:
+                sats, created = Sats.objects.get_or_create(sats_cpf=request.user, defaults={
+                'sats_cpf':request.user, 'sats_check':'1','sats_quest_01':'0'
+    })
+        
+    else:
+        radio_form = SimpleForm()
+        print('else')
+    
     # post = get_object_or_404(Profile, pk=sats.id)
     # if request.method == "POST":        
     #     form = SatsForm(request.POST, instance=post)
@@ -65,9 +83,7 @@ def home(request):
     #     form = SatsForm(instance=sats)
    
 
-    # form = SimpleForm()
-
-    context = {'aluno':aluno, 'status':status, 'sats':sats, 'valor_rb': valor_rb}
+    context = {'aluno':aluno, 'status':status, 'sats':sats, 'radio_form':radio_form}
 
     return render(request, 'blog/home.html', context)
 
@@ -121,6 +137,17 @@ def info(request):
 @login_required
 def tutoriais(request):    
     return render(request, 'blog/tutoriais.html', {})
+
+
+def ConsultasStaus():   
+    b = Boleto.objects.get(bol_cpf=request.user)
+    if(b.id > 0):
+        status = '1'
+    else:
+        status = '0'
+    
+    return status
+
 
 # def login(request):
 #     return render(request, 'login.html')

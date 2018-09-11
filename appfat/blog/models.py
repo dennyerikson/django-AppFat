@@ -67,12 +67,13 @@ class Status(models.Model):
 
     status_author = models.ForeignKey('auth.User', on_delete=models.CASCADE)
     status_cpf = models.CharField(max_length=11)
-    status_status = models.TextField() 
-    status_bolsa = models.TextField()
-    status_ajuste = models.TextField()
-    status_card = models.TextField()
-    status_rematricula = models.TextField()
-    status_boleto = models.TextField()
+    status_status = models.CharField(max_length=2) 
+    status_bolsa = models.CharField(max_length=2)
+    status_ajuste = models.CharField(max_length=2)
+    status_card = models.CharField(max_length=2)
+    status_rematricula = models.CharField(max_length=2)
+    status_boleto = models.CharField(max_length=2)
+    status_sala = models.CharField(max_length=2)
        
     created_date = models.DateTimeField(
     default = timezone.now)
