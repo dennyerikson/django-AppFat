@@ -29,7 +29,8 @@
             {% endif %}
         </div>   
     {% endif %}   
-
+    
+    {% for im in info_modal %} 
     <!-- Modal -->
         <div id="myModal" class="modal fade" role="dialog">
             <div class="modal-dialog">
@@ -44,122 +45,124 @@
                 <div class="modal-body">
          
                 <table class="tabelamodal">
-                    {% for stt in status %}
-                        {% ifequal stt.status_ajuste "1" %}
-                        <tr>
-                            <td class="bb">
-                                <b>Ajuste de Horário</b>
-                            </td>
-                            <td class="bb">
-                                Entre no seu portal e realize o Ajuste de Horário.
-                            </td>
-                        </tr>
+                    <!-- get titulos textos modal -->
+                        {% for stt in status %}
+                            {% ifequal stt.status_ajuste "1" %}
+                            <tr>
+                                <td class="bb">
+                                    <b>{{im.title1}}</b>
+                                </td>
+                                <td class="bb">
+                                    {{im.text1}}
+                                </td>
+                            </tr>
 
+                            {% endifequal %}
+                        
+                        {% endfor %}
+
+                        {% for stt in status %}
+                            {% ifequal stt.status_boleto "1" %}
+                            <tr>
+                                <td class="bb">
+                                    <b>{{im.title2}}</b>
+                                </td>
+                                <td class="bb">
+                                        {{im.text2}}
+                                </td>
+                            </tr>
+                            {% endifequal %}
+                        {% endfor %}
+
+                        {% for stt in status %}
+                            {% ifequal stt.status_card "1" %}
+                            <tr>
+                                <td class="bb">
+                                    <b>{{im.title3}}</b>
+                                </td>
+                                <td class="bb">
+                                        {{im.text3}}
+                                </td>
+                            </tr>
+                            {% endifequal %}
+                        {% endfor %}
+
+                        {% for stt in status %}
+                            {% ifequal stt.status_rematricula "1" %}
+                            <tr>
+                                <td class="bb">
+                                    <b>{{im.title4}}</b>
+                                </td>
+                                <td class="bb">
+                                        {{im.text4}}
+                                </td>
+                            </tr>
+                            {% endifequal %}
+                        {% endfor %}
+
+                        {% for stt in status %}
+                            {% ifequal stt.status_bolsa "1" %}
+                            <tr>
+                                <td class="bb">
+                                    <b>{{im.title5}}</b>
+                                </td>
+                                <td class="bb">
+                                        {{im.text5}}
+                                </td>
+                            </tr>
+                            {% endifequal %}
+                        {% endfor %}
+
+                        {% for stt in status %}
+                            {% ifequal stt.status_bolsa "1" %}
+                            <tr>
+                                <td class="bb">
+                                    <b>{{im.title6}}</b>
+                                </td>
+                                <td class="bb">
+                                        {{im.text6}}
+                                </td>
+                            </tr>
+                            {% endifequal %}
+                        {% endfor %}    
+
+                        <!-- {% for stt in status %} -->
+                            {% if conecta > 0  %}
+                            <tr>
+                                <td class="">
+                                    <b>{{im.title7}}</b>
+                                </td>
+                                <td class="">
+                                        {{im.text7}}
+                                </td>
+                            </tr>
+                            {% endif %}
+                        <!-- {% endfor %}   -->
+                        
+                        {% for stt in status %}
+                            {% ifequal stt.status_status "1" %}
+                            <tr>
+                                <td class="">
+                                    <b>{{im.title8}}</b>
+                                </td>
+                                <td class="">
+                                        {{im.text8}}
+                                </td>
+                            </tr>
+                            {% endifequal %}
+                        {% endfor %} 
+                        
+                        {% ifequal sats.sats_check "1" %}
+                            <tr>
+                                <td class="">
+                                    <b>{{im.title9}}</b>
+                                </td>
+                                <td class="">
+                                        {{im.text9}}
+                                </td>
+                            </tr>
                         {% endifequal %}
                     
-                    {% endfor %}
-
-                    {% for stt in status %}
-                        {% ifequal stt.status_boleto "1" %}
-                        <tr>
-                            <td class="bb">
-                                <b>Boletos</b>
-                            </td>
-                            <td class="bb">
-                                Existe um boleto em aberto, entre em seu portal para regularizar.
-                            </td>
-                        </tr>
-                        {% endifequal %}
-                    {% endfor %}
-
-                    {% for stt in status %}
-                        {% ifequal stt.status_card "1" %}
-                        <tr>
-                            <td class="bb">
-                                <b>Carteirinha</b>
-                            </td>
-                            <td class="bb">
-                                sua carteirinha chegou, retire no setor de Informática.
-                            </td>
-                        </tr>
-                        {% endifequal %}
-                    {% endfor %}
-
-                    {% for stt in status %}
-                        {% ifequal stt.status_rematricula "1" %}
-                        <tr>
-                            <td class="bb">
-                                <b>Rematrícula</b>
-                            </td>
-                            <td class="bb">
-                                Você ainda não realizou sua rematrícula, não perca mais tempo, acesse seu portal para regularizar sua situação.
-                            </td>
-                        </tr>
-                        {% endifequal %}
-                    {% endfor %}
-
-                    {% for stt in status %}
-                        {% ifequal stt.status_bolsa "1" %}
-                        <tr>
-                            <td class="bb">
-                                <b>Prouni</b>
-                            </td>
-                            <td class="bb">
-                                Entregue os documentos necessarios para regularizar a situação de sua bolsa.
-                            </td>
-                        </tr>
-                        {% endifequal %}
-                    {% endfor %}
-
-                    {% for stt in status %}
-                        {% ifequal stt.status_bolsa "1" %}
-                        <tr>
-                            <td class="bb">
-                                <b>Fies</b>
-                            </td>
-                            <td class="bb">
-                            Você ainda não realizou o aditamento, não perca mais tempo e regularize sua situação.
-                            </td>
-                        </tr>
-                        {% endifequal %}
-                    {% endfor %}    
-
-                    {% for stt in status %}
-                        {% ifequal stt.status_bolsa "1" %}
-                        <tr>
-                            <td class="">
-                                <b>Canal Conecta</b>
-                            </td>
-                            <td class="">
-                            Temos uma vaga de emprego pra você, entre no portal do canal conecta e acesse a vaga.
-                            </td>
-                        </tr>
-                        {% endifequal %}
-                    {% endfor %}  
-                    
-                    {% for stt in status %}
-                        {% ifequal stt.status_status "1" %}
-                        <tr>
-                            <td class="">
-                                <b>Sala Especial</b>
-                            </td>
-                            <td class="">
-                            As inscrições estarão abertas a partir do dia 30/08, no seu portal do aluno.
-                            </td>
-                        </tr>
-                        {% endifequal %}
-                    {% endfor %} 
-                    
-                    {% ifequal sats.sats_check "1" %}
-                        <tr>
-                            <td class="">
-                                <b>Pesquisa</b>
-                            </td>
-                            <td class="">
-                                Por favor responda a pesquisa.
-                            </td>
-                        </tr>
-                    {% endifequal %}
 
                 </table>
 
@@ -167,6 +170,7 @@
 
                 <div class="modal-footer">
                     <button type="button" id="btnopen" class="button" data-dismiss="modal">Close</button>
+                    <!-- <button type="button" id="btnim" class="button" data-dismiss="modal">Close</button> -->
                 </div>
             </div>
 
@@ -177,18 +181,23 @@
         <div id="myModal2" class="modal fade" role="dialog">
                 <div class="modal-dialog">
                     <!-- inserindo modal 27/07/2018 -->
-                    <div class="modal-content">
-                        <div class="modal-header">
-                           <h4 class="modal-title">Precisamos da sua opnião!</h4>
-                        </div>
-                        <div class="modal-body">
+                    <div class="modal-content">                        
+                            <div class="modal-header">
+                            
+                            <h4 class="modal-title">{{im.title10}}</h4>
+                            
+                            </div>
+                            <div class="modal-body">
                             <table align="center" class="tabelamodal">
                                     <tr>
                                         <td colspan="2">
-                                            <h5><b>Você indicaria a faculdade para um amigo?</b></h5>
+                                           
+                                            <h5><b>{{im.text10}}</b></h5>
+                                            
                                         </td>
                                     </tr>
                             </table>
+                        
                             <table align="center">
                                     <!-- <tr>
                                        <td>&nbsp;<b>00</b></td>
@@ -205,28 +214,11 @@
                                     </tr> -->
                                     <tr>   
                                         
-                                        <form action='#home' method="POST" class="post-form">
+                                        <form method="POST" class="post-form">
                                             {% csrf_token %}
                                             {{ radio_form.as_p }}
-                                            <button type="submit" class="button">Enviar</button>
-                                        </form>
-                                    <!-- <form action="#home" method="POST">
-                                        
-                                        <td><input type="radio" name="rb_type" value="0" >&nbsp;</input>&nbsp;&nbsp;</td>
-                                        <td><input type="radio" name="rb_type" value="1" >&nbsp;</input>&nbsp;&nbsp;</td>
-                                        <td><input type="radio" name="rb_type" value="2" >&nbsp;</input>&nbsp;&nbsp;</td>
-                                        <td><input type="radio" name="rb_type" value="3" >&nbsp;</input>&nbsp;&nbsp;</td>
-                                        <td><input type="radio" name="rb_type" value="4" >&nbsp;</input>&nbsp;&nbsp;</td>
-                                        <td><input type="radio" name="rb_type" value="5" >&nbsp;</input>&nbsp;&nbsp;</td>
-                                        <td><input type="radio" name="rb_type" value="6" >&nbsp;</input>&nbsp;&nbsp;</td>
-                                        <td><input type="radio" name="rb_type" value="7" >&nbsp;</input>&nbsp;&nbsp;</td>
-                                        <td><input type="radio" name="rb_type" value="8" >&nbsp;</input>&nbsp;&nbsp;</td>
-                                        <td><input type="radio" name="rb_type" value="9" >&nbsp;</input>&nbsp;&nbsp;</td>
-                                        <td><input type="radio" name="rb_type" value="10" >&nbsp;</input>&nbsp;&nbsp;</td>
-
-                                        <!-- <td><button type="submit" class="button" id="btn_close" data-dismiss="modal">Enviar</button></td> -->
-                                        <!-- <td><input class="button" type="submit" value="submit" data-dismiss="modal"/></td>
-                                    </form>         -->
+                                            <button id="btnim" type="submit" class="button">Enviar</button>
+                                        </form>                                
 
                                         <!-- <td><button style="width:20px" type="button" id="close0" value="0" data-dismiss="modal">&nbsp;</button>&nbsp;&nbsp;</td>                                        
                                         <td><button style="width:20px" type="button" id="close1" value="1" data-dismiss="modal">&nbsp;</button>&nbsp;&nbsp;</td>
@@ -242,6 +234,7 @@
                                     </tr>
                             </table>
                         </div>
+                    
                     </div>
                 </div>
             </div>
@@ -256,7 +249,7 @@
                                 <tr><td>&nbsp;</td></tr>
                                 <tr>
                                     <td>
-                                        <b>{{ valor_rb }}</b>
+                                        <!-- <b>{{ valor_rb }}</b> -->
                                         <b>OBRIGADO PELA SUA OPINIÃO!</b>
                                     </td>
                                 </tr>
@@ -266,38 +259,39 @@
                     </div>
                 </div>
             </div>
+    {% endfor %} 
 
-        {% for value in status %}
-            {% if value.status_status == "1" or value.status_bolsa == "1" or value.status_ajuste == "1" or value.status_card == "1" or value.status_rematricula == "1" or value.status_boleto == "1" or sats.sats_check == "1"%}              
-                <!-- script para carregar modal ao iniciar a pagina 27/07/2018 -->
-                <script>
-                    $(document).ready(function(){
-                        $('#myModal').modal('show');
-                    });  
+            {% for value in status %}
+                {% if value.status_status == "1" or value.status_bolsa == "1" or value.status_ajuste == "1" or value.status_card == "1" or value.status_rematricula == "1" or value.status_boleto == "1" or sats.sats_check == "1" or conecta > 0%}
+                    <!-- script para carregar modal ao iniciar a pagina 27/07/2018 -->
+                    <script>
+                        $(document).ready(function(){
+                            $('#myModal').modal('show');
+                        });
 
-                                             
-                </script>
-                <!-- verificação de pesquisa 24/08/2018 -->              
-                    <!-- {{sats.sats_cpf}} get um unico ibjeto do sats -->
+
+                    </script>
+                    <!-- verificação de pesquisa 24/08/2018 -->
+                        <!-- {{sats.sats_cpf}} get um unico ibjeto do sats -->
                     {% ifequal sats.sats_check "1"%}
-                       <script>
+                    <script>
                             $("#btnopen").on('click', function () {
                                 $('#myModal2').modal('show');
                             });
-            
+
                             // $("#close0, #close1, #close2, #close3, #close4, #close5, #close6, #close7, #close8, #close9, #close10").on('click', function () {
                             $("#btn_close").on('click', function () {
                                 $('#myModal3').modal('show');
                                 setTimeout(function(){
                                     $('#myModal3').modal('hide');
                                 }, 2000);
-                            }); 
-                       </script>
-                   {% endifequal %}
-                 
-                
-            {% endif %}
-        {% endfor %}
+                            });
+                    </script>
+                    {% endifequal %}
+
+                {% endif %}
+
+            {% endfor %}
 
         <script type="text/javascript">
         
@@ -314,7 +308,7 @@
             }
         }
         </script>      
-        
+       
 
         
       
@@ -324,6 +318,7 @@
  
 {% for alunos in aluno %}
     <h1 class="textcenter"><b>Olá, {{ alunos.alu_nome }}</b></h1>
+    <!-- <h1 class="textcenter"><b>{{ sats.sats_check }} | {{ sats.sats_quest_01 }} | {{ request.user }}</b></h1> -->
 {% endfor %}
  
 

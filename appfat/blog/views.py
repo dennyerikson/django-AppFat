@@ -50,16 +50,25 @@ def home(request):
     
     status = Status.objects.filter(status_cpf=request.user) #tabela atenção
 
+    for a in aluno:
+        conecta = a.alu_id_cur
+    
+   
+
     sats, created = Sats.objects.get_or_create(sats_cpf=request.user, defaults={
         'sats_cpf':request.user, 'sats_check':'1','sats_quest_01':'0'
     })
 
-    """ get choices """
+    info_modal = InfoModal.objects.filter()
+    
+    # for m in info_modal:
+    #     print(sats.sats_check, m.text10, m.title10, m.title9)
+    """ get choices - persiste o valor do radiobutton """
     if request.method == "POST": 
         radio_form = SimpleForm(request.GET.get('choice'))
         if radio_form.is_valid:                       
             valor_rb = request.POST.get('choice')      
-            print('valor choice: {}'.format(valor_rb))
+            # print('valor choice: {}'.format(valor_rb))
             try:
                 sats.sats_check = '0'
                 sats.sats_quest_01 = str(valor_rb)
@@ -71,7 +80,7 @@ def home(request):
         
     else:
         radio_form = SimpleForm()
-        print('else')
+        # print('else')
     
     # post = get_object_or_404(Profile, pk=sats.id)
     # if request.method == "POST":        
@@ -83,7 +92,7 @@ def home(request):
     #     form = SatsForm(instance=sats)
    
 
-    context = {'aluno':aluno, 'status':status, 'sats':sats, 'radio_form':radio_form}
+    context = {'aluno':aluno, 'status':status, 'sats':sats, 'radio_form':radio_form, 'info_modal':info_modal, 'conecta':conecta}
 
     return render(request, 'blog/home.html', context)
 
@@ -98,11 +107,11 @@ def boleto(request):
 def curso(request):
 
     aluno = Aluno.objects.get(alu_cpf=request.user) #dados aluno
-    curso = Curso.objects.filter(cur_nome=aluno.alu_curso)
+    curso = Curso.objects.filter(cur_id_cur=aluno.alu_id_cur)
     
     for c in curso:
         coord = c
-
+    
     context = {'curso':curso, 'aluno':aluno, 'coord':coord}
 
     return render(request, 'blog/curso.html', context)
@@ -117,7 +126,7 @@ def sala(request):
 @login_required
 def conecta(request):
     aluno = Aluno.objects.get(alu_cpf=request.user) #dados aluno
-    conecta = Conecta.objects.filter(con_curso=aluno.alu_curso)
+    conecta = Conecta.objects.filter(con_id_cur=aluno.alu_id_cur)
     return render(request, 'blog/conecta.html', {'conecta':conecta})
 
 """ CONVENIO """

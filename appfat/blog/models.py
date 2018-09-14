@@ -23,6 +23,7 @@ class Aluno(models.Model):
     alu_email=models.CharField(max_length=150)
     alu_curso=models.CharField(max_length=200) # add coluna do curso 
     alu_status=models.CharField(max_length=20)
+    alu_id_cur=models.CharField(max_length=2)
 
     created_date = models.DateTimeField(
         default = timezone.now)
@@ -166,6 +167,7 @@ class Curso(models.Model):
     cur_contato = models.CharField(max_length=150)
     cur_nome_coor = models.CharField(max_length=150)
     cur_cont_coor= models.CharField(max_length=150)
+    cur_id_cur=models.CharField(max_length=2)
 
     def __str__(self):
         return self.cur_nome
@@ -185,6 +187,7 @@ class Conecta(models.Model):
     con_vaga = models.TextField(max_length=300)
     con_id = models.TextField(max_length=30)
     con_curso = models.TextField(max_length=300)
+    con_id_cur = models.CharField(max_length=2)
 
     def __str__(self):
         return self.con_vaga
@@ -196,4 +199,27 @@ class Convenio(models.Model):
 
     def __str__(self):
         return self.conv_title
+
+
+class InfoModal(models.Model):
+    text1 = models.CharField(max_length=130)
+    text2 = models.CharField(max_length=130)
+    text3 = models.CharField(max_length=130)
+    text4 = models.CharField(max_length=130)
+    text5 = models.CharField(max_length=130)
+    text6 = models.CharField(max_length=130)
+    text7 = models.CharField(max_length=130)
+    text8 = models.CharField(max_length=130)
+    text9 = models.CharField(max_length=130)
+    text10 = models.CharField(max_length=130)# texto dedicado a pesquisa
+    title1 = models.CharField(max_length=30)
+    title2 = models.CharField(max_length=30)
+    title3 = models.CharField(max_length=30)
+    title4 = models.CharField(max_length=30)
+    title5 = models.CharField(max_length=30)
+    title6 = models.CharField(max_length=30)
+    title7 = models.CharField(max_length=30)
+    title8 = models.CharField(max_length=30)
+    title9 = models.CharField(max_length=30)
+    title10 = models.CharField(max_length=30)# Title dedicado a pesquisa
         
