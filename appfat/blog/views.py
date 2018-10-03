@@ -65,9 +65,9 @@ def home(request):
     #     print(sats.sats_check, m.text10, m.title10, m.title9)
     """ get choices - persiste o valor do radiobutton """
     if request.method == "POST": 
-        radio_form = SimpleForm(request.GET.get('choice'))
+        radio_form = SimpleForm(request.GET.get('ESCOLHA'))
         if radio_form.is_valid:                       
-            valor_rb = request.POST.get('choice')      
+            valor_rb = request.POST.get('ESCOLHA')      
             # print('valor choice: {}'.format(valor_rb))
             try:
                 sats.sats_check = '0'

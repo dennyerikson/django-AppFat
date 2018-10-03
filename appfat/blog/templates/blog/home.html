@@ -12,10 +12,12 @@
         <meta charset="UTF-8">
         <title>APP FAT</title>
         <!--<a href="https://icons8.com">Icon pack by Icons8</a>-->
+
     </head>
+    
 
     <body class="fundo" style="background-image: url('{% static "blog/img/fundo.jpg"%}')";>
-
+   
     {% if user.is_authenticated %}
         <a class=logout href="{% url 'logout' %}" class="top-menu"><img src="https://png.icons8.com/metro/50/333333/exit.png" width="26" >
             <div class=logout text-align=center >
@@ -184,7 +186,7 @@
                     <div class="modal-content">                        
                             <div class="modal-header">
                             
-                            <h4 class="modal-title">{{im.title10}}</h4>
+                            <h3 class="modal-title">{{im.title10}}</h3>
                             
                             </div>
                             <div class="modal-body">
@@ -192,8 +194,9 @@
                                     <tr>
                                         <td colspan="2">
                                            
-                                            <h5><b>{{im.text10}}</b></h5>
-                                            
+                                            <h4><b>{{im.text10}}</b></h4>
+                                            <h5><b>Numa escala de 0 a 10</b></h5>
+
                                         </td>
                                     </tr>
                             </table>
@@ -215,10 +218,11 @@
                                     <tr>   
                                         
                                         <form method="POST" class="post-form">
+                                        <!-- <form method="POST" class="post-form"> -->   
                                             {% csrf_token %}
                                             {{ radio_form.as_p }}
                                             <button id="btnim" type="submit" class="button">Enviar</button>
-                                        </form>                                
+                                        </form>
 
                                         <!-- <td><button style="width:20px" type="button" id="close0" value="0" data-dismiss="modal">&nbsp;</button>&nbsp;&nbsp;</td>                                        
                                         <td><button style="width:20px" type="button" id="close1" value="1" data-dismiss="modal">&nbsp;</button>&nbsp;&nbsp;</td>
@@ -313,7 +317,7 @@
         
       
 
-<br><br><br><br><br><br><br>
+<br><br><br><br><br><br>
 
  
 {% for alunos in aluno %}
@@ -398,16 +402,18 @@
             <a href="http://api.whatsapp.com/send?1=pt_BR&phone=5512981901892"><img src="https://png.icons8.com/color/100/ecf0f1/whatsapp.png "width="30" ><br><b>Rematrícula</b></a>
         </td>
         <td class="">
-            <a href="http://api.whatsapp.com/send?1=pt_BR&phone=5512981901892"><img src="https://png.icons8.com/color/100/ecf0f1/whatsapp.png "width="30" ><br><b>Secretaria</b></a>
+            <a href="http://api.whatsapp.com/send?1=pt_BR&phone=551236344126"><img src="https://png.icons8.com/color/100/ecf0f1/whatsapp.png "width="30" ><br><b>Secretaria</b></a>
         </td>
     </tr>
 
 </table>
 
-<!-- <br>
 <table class="tabela textomenu2">
     <tr><td><b>Reclamações ou Sugestões:<br>fatouvidoria@anhanguera.com</b></td></tr>
-</table> -->
+</table>
+<div align="center">
+    <img src="{% static "blog/img/logo.png" %}" width="76">
+</div>
 
     </body>
 </html>

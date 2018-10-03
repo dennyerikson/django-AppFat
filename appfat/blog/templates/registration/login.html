@@ -42,7 +42,13 @@
         <div class="login-page">
                 <div class="form">                  
                     <form class="pure-form pure-form-aligned" method="POST">
-                            <h2> Informe seu CPF para acessar </h2>
+                            <div align="center">
+                                <img src="{% static "blog/img/logo.png" %}" width="96">
+                            </div>
+
+                            <h2> Bem-vindo Aluno!</h2>
+                            <h5>Acesse com seu CPF e senha do Portal</h5>
+                            <h6>Erros ou dúvidas, procure o Apoio de TI</h6>
                             {% csrf_token %}
                             <fieldset>
                                 {{ form.non_field_errors }}
@@ -69,9 +75,12 @@
                             </div>
                         </div>
                         <!-- <p class="message">Not registered? <a href="#">Create an account</a></p> -->
+                        
                 </form>
+                
             </div>
         </div>
+
         <script>
           $('.message a').click(function(){
                 $('form').animate({height: "toggle", opacity: "toggle"}, "slow");
