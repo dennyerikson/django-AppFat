@@ -168,6 +168,7 @@ class Curso(models.Model):
     cur_nome_coor = models.CharField(max_length=150)
     cur_cont_coor= models.CharField(max_length=150)
     cur_id_cur=models.CharField(max_length=2)
+    cur_id_uni=models.CharField(max_length=2)
 
     def __str__(self):
         return self.cur_nome

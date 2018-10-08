@@ -398,9 +398,15 @@
 <table class="tabela textomenu2">
 
     <tr>
-        <td class="">
-            <a href="http://api.whatsapp.com/send?1=pt_BR&phone=5512981901892"><img src="https://png.icons8.com/color/100/ecf0f1/whatsapp.png "width="30" ><br><b>Rematrícula</b></a>
-        </td>
+        {% if id_uni == "01" %}
+            <td class=""><!--5512982175861-->
+                <a href="http://api.whatsapp.com/send?1=pt_BR&phone=5512981901892"><img src="https://png.icons8.com/color/100/ecf0f1/whatsapp.png "width="30" ><br><b>Rematrícula</b></a>
+            </td>
+        {% else %}
+            <td class="">
+                <a href="http://api.whatsapp.com/send?1=pt_BR&phone=5512982175861"><img src="https://png.icons8.com/color/100/ecf0f1/whatsapp.png "width="30" ><br><b>Rematrícula</b></a>
+            </td>
+        {% endif %}
         <td class="">
             <a href="http://api.whatsapp.com/send?1=pt_BR&phone=551236344126"><img src="https://png.icons8.com/color/100/ecf0f1/whatsapp.png "width="30" ><br><b>Secretaria</b></a>
         </td>

@@ -52,8 +52,12 @@ def home(request):
 
     for a in aluno:
         conecta = a.alu_id_cur
+        
     
-   
+    cur = Curso.objects.filter(cur_id_cur=conecta)
+    for c in cur:
+        id_uni = c.cur_id_uni
+        print(id_uni)
 
     sats, created = Sats.objects.get_or_create(sats_cpf=request.user, defaults={
         'sats_cpf':request.user, 'sats_check':'1','sats_quest_01':'0'
@@ -92,7 +96,8 @@ def home(request):
     #     form = SatsForm(instance=sats)
    
 
-    context = {'aluno':aluno, 'status':status, 'sats':sats, 'radio_form':radio_form, 'info_modal':info_modal, 'conecta':conecta}
+    context = {'aluno':aluno, 'status':status, 'sats':sats, 'radio_form':radio_form,
+    'info_modal':info_modal, 'conecta':conecta, 'id_uni':id_uni}
 
     return render(request, 'blog/home.html', context)
 
@@ -111,6 +116,7 @@ def curso(request):
     
     for c in curso:
         coord = c
+        
     
     context = {'curso':curso, 'aluno':aluno, 'coord':coord}
 
