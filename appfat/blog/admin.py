@@ -7,4 +7,5 @@ admin.site.register(Aluno)
 admin.site.register(Status)
 admin.site.register(Curso)
 admin.site.register(InfoModal)
+admin.site.register(Info)
 
