@@ -4,7 +4,7 @@
 {% block content %}
 <BR>
 <div align="center">
-  <img src="{% static "blog/img/boletos.png" %}" width="300">
+  <img src="{% static "blog/img/BOLETOS.png" %}" width="300">
 </div>
 <BR>        
 <div class="divtexto">
@@ -19,21 +19,23 @@
   <tr>
     <td class="beck bb" colspan="3"><B>INFORMAÇÃO</B></td>
   </tr>
-  <tr>
-    <td class="tamanho"><b>BOLETO</b></td>
-    <td class="">-</td>
-    <td class="">{{bol.boleto}}</td>
-  </tr>
-  <tr>
-    <td class="bc bb tamanho"><b>DATA</b></td>
-    <td class="bc bb">-</td>
-    <td class="bc bb">{{bol.data}}</td>
-  </tr>
-  <tr>
-    <td class="tamanho"><b>STATUS</b></td>
-    <td class="">-</td>
-    <td class="">{{bol.status}}</td>
-  </tr>
+   
+    <tr>
+      <td class="tamanho"><b>BOLETO</b></td>
+      <!-- <td class="">-</td> -->
+      <td class="">{{bol.boleto}}</td>
+    </tr>
+    <tr>
+      <td class="bc bb tamanho"><b>DATA</b></td>
+      <!-- <td class="bc bb">-</td> -->
+      <td class="bc bb">{{bol.data}}</td>
+    </tr>
+    <tr>
+      <td class="tamanho"><b>STATUS</b></td>
+      <!-- <td class="">-</td> -->
+      <td class="">{{bol.status}}</td>
+    </tr>
+  
 </table>
 {% endfor %}
 <!-- fim laço -->

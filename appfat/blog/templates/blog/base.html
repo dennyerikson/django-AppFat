@@ -16,12 +16,45 @@
 </head>
 <body>
     {% block content %}{% endblock %}
-
-    <BR><BR>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <!-- <BR><BR>
         <div align="center">
           <a href="/">
             <img src="{% static "blog/img/voltar.png" %}"  width="60">
           </a>
-        </div>
+        </div> -->
+     <!-- Float button -->
+     <div class="zoom">
+        <a class="zoom-fab zoom-btn-large" id="zoomBtn" href="/">
+        <img src="https://img.icons8.com/metro/50/ffffff/back.png">
+    </a>               
+  </div>
+
+  <!-- <div class="menu">
+      <ul>
+          <li><a href="#"><img src="https://img.icons8.com/ios/50/FA4801/facebook-filled.png" width="26"></a>
+              <p id="p">facebook</p></li>
+          <li><a href="#"><img src="https://img.icons8.com/ios/50/FA4801/whatsapp-filled.png" width="26"></a>
+              <p id="p">Secretaria</p></li>
+          <li><a href="#"><img src="https://img.icons8.com/ios/50/FA4801/whatsapp-filled.png" width="26"></a>
+              <p id="p">Rematricula</p></li>
+          <li><a href="#"><img src="https://img.icons8.com/ios-glyphs/50/FA4801/new-post.png" width="26"></a>
+              <p id="p">e-mail</p></li>
+      </ul>
+  
+  </div>
+
+  <script>
+      $('#zoomBtn').click(function() {
+      $('.zoom-btn-sm').toggleClass('scale-out');
+      if (!$('.zoom-card').hasClass('scale-out')) {
+          $('.zoom-card').toggleClass('scale-out');
+      }
+      });
+  </script> -->
 </body>
 </html>

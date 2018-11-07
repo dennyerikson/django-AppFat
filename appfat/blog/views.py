@@ -52,16 +52,46 @@ def home(request):
 
     for a in aluno:
         conecta = a.alu_id_cur
-        
+      
     
     cur = Curso.objects.filter(cur_id_cur=conecta)
     for c in cur:
         id_uni = c.cur_id_uni
-        print(id_uni)
+        # print(c.cur_nome)
+    
+    ############# Verificação da vaga conecta #############    
+    cur_conecta = Conecta.objects.filter(con_id_cur=conecta)
+    for c in cur_conecta:
+        id_con = c.pk
+        # print("curso", c.con_curso)
+
+    try:
+        if id_con > 0:
+            conecta = 1        
+    except:
+        conecta = 0   
+    # print("valor ", conecta) 
+    ############## Verificação da vaga conecta #############
 
     sats, created = Sats.objects.get_or_create(sats_cpf=request.user, defaults={
-        'sats_cpf':request.user, 'sats_check':'1','sats_quest_01':'0'
+        'sats_cpf':request.user, 'sats_check':'1','sats_quest_01':'0', 'created_date':timezone.now(),
     })
+   
+   ############# Cria status do user #############
+    query, created = Status.objects.get_or_create(status_cpf=request.user, defaults={        
+        'status_cpf':request.user, 
+        'status_bolsa':"0",
+        'status_ajuste':"0",
+        'status_card':"0",
+        'status_rematricula':"0",
+        'status_boleto':"0",
+        'created_date':timezone.now(),
+        'published_date':timezone.now(),
+        'status_author_id':1,
+        'status_sala':"0",
+        'status_status':"0"
+    })
+    ############# Cria status do user #############
 
     info_modal = InfoModal.objects.filter()
     
@@ -76,10 +106,11 @@ def home(request):
             try:
                 sats.sats_check = '0'
                 sats.sats_quest_01 = str(valor_rb)
+                created_date = timezone.now(),
                 sats.save() 
             except:
                 sats, created = Sats.objects.get_or_create(sats_cpf=request.user, defaults={
-                'sats_cpf':request.user, 'sats_check':'1','sats_quest_01':'0'
+                'sats_cpf':request.user, 'sats_check':'1','sats_quest_01':'0', 'created_date':timezone.now(),
     })
         
     else:
@@ -95,6 +126,13 @@ def home(request):
     # else:    
     #     form = SatsForm(instance=sats)
    
+    # print(type(int(sats.sats_check)),int(sats.sats_check), created)
+    # sats_ = int(sats.sats_check)
+    # if sats_ > 0:
+    #     sats_ = 1
+    # else:
+    #     sats_ = 0
+    # print("sats_", sats_)
 
     context = {'aluno':aluno, 'status':status, 'sats':sats, 'radio_form':radio_form,
     'info_modal':info_modal, 'conecta':conecta, 'id_uni':id_uni}
@@ -162,6 +200,7 @@ def ConsultasStaus():
         status = '0'
     
     return status
+
 
 
 # def login(request):

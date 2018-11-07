@@ -120,6 +120,8 @@ class Sats(models.Model):
     sats_cpf = models.CharField(max_length=11)
     sats_check = models.CharField(max_length=2)
     sats_quest_01 = models.CharField(max_length=2)
+    created_date = models.DateTimeField(
+    default = timezone.now)
    
     def __str__(self):
         return self.sats_check

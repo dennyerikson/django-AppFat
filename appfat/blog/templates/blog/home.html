@@ -154,7 +154,7 @@
                             {% endifequal %}
                         {% endfor %} 
                         
-                        {% ifequal sats.sats_check "1" %}
+                        {% if sats.sats_check == "1" %}
                             <tr>
                                 <td class="">
                                     <b>{{im.title9}}</b>
@@ -163,7 +163,7 @@
                                         {{im.text9}}
                                 </td>
                             </tr>
-                        {% endifequal %}
+                        {% endif %}
                     
 
                 </table>
@@ -266,7 +266,7 @@
     {% endfor %} 
 
             {% for value in status %}
-                {% if value.status_status == "1" or value.status_bolsa == "1" or value.status_ajuste == "1" or value.status_card == "1" or value.status_rematricula == "1" or value.status_boleto == "1" or sats.sats_check == "1" or conecta > 0%}
+                {% if value.status_status == "1" or value.status_bolsa == "1" or value.status_ajuste == "1" or value.status_card == "1" or value.status_rematricula == "1" or value.status_boleto == "1" or sats.sats_check == "1" or conecta > 0 %}
                     <!-- script para carregar modal ao iniciar a pagina 27/07/2018 -->
                     <script>
                         $(document).ready(function(){
@@ -367,7 +367,7 @@
         <tr height="7"></tr>
         <tr>
             <td class="tdtext tdcolor6">
-                <a href="/convenio"><b>CONVÊNIOS</b></a>
+                <a href="/convenio"><b>PROVAS</b></a>
             </td>
         </tr>
         <tr height="7"></tr>
@@ -395,30 +395,46 @@
 
 <br>
 
-<table class="tabela textomenu2">
+<!-- <table class="tabela descricao">
 
     <tr>
         {% if id_uni == "01" %}
-            <td class=""><!--5512982175861-->
-                <a href="http://api.whatsapp.com/send?1=pt_BR&phone=5512981901892"><img src="https://png.icons8.com/color/100/ecf0f1/whatsapp.png "width="30" ><br><b>Rematrícula VG</b></a>
+            <td class="">
+                <a href="http://api.whatsapp.com/send?1=pt_BR&phone=5512981901892"><img src="https://png.icons8.com/color/100/ecf0f1/whatsapp.png "width="30" ><br><p>Rematrícula VG</p></a>
             </td>
         {% else %}
             <td class="">
-                <a href="http://api.whatsapp.com/send?1=pt_BR&phone=5512982175861"><img src="https://png.icons8.com/color/100/ecf0f1/whatsapp.png "width="30" ><br><b>Rematrícula CS</b></a>
+                <a href="http://api.whatsapp.com/send?1=pt_BR&phone=5512982175861"><img src="https://png.icons8.com/color/100/ecf0f1/whatsapp.png "width="30" ><br><p>Rematrícula CS</p></a>
             </td>
         {% endif %}
         <td class="">
-            <a href="http://api.whatsapp.com/send?1=pt_BR&phone=551236344126"><img src="https://png.icons8.com/color/100/ecf0f1/whatsapp.png "width="30" ><br><b>Secretaria</b></a>
+            <a href="http://api.whatsapp.com/send?1=pt_BR&phone=551236344126"><img src="https://png.icons8.com/color/100/ecf0f1/whatsapp.png "width="30" ><br><p>Secretaria</p></a>
         </td>
     </tr>
 
-</table>
+</table> -->
 
-<table class="tabela textomenu2">
-    <tr><td><b>Reclamações ou Sugestões:<br>fatouvidoria@anhanguera.com</b></td></tr>
-</table>
-<div align="center">
+<!-- <table class="tabela descricao">
+    <tr><td><p>Reclamações ou Sugestões:<br>fatouvidoria@anhanguera.com</p></td></tr>
+</table> -->
+<div class="logo_rodape">
     <img src="{% static "blog/img/logo.png" %}" width="76">
+</div>
+<table class="tabela descricao">
+    <tr><td><p>Reclamações ou Sugestões:<br>fatouvidoria@anhanguera.com</p></td></tr>
+</table>
+<div class="menu">
+    <ul>
+        <li><a href="#"><img src="https://img.icons8.com/ios/50/FA4801/facebook-filled.png" width="26"></a>
+            <p id="p">facebook</p></li>
+        <li><a href="#"><img src="https://img.icons8.com/ios/50/FA4801/whatsapp-filled.png" width="26"></a>
+            <p id="p">Secretaria</p></li>
+        <li><a href="#"><img src="https://img.icons8.com/ios/50/FA4801/whatsapp-filled.png" width="26"></a>
+            <p id="p">Rematricula VG</p></li>
+        <li><a href="#"><img src="https://img.icons8.com/ios-glyphs/50/FA4801/new-post.png" width="26"></a>
+            <p id="p">e-mail</p></li>
+    </ul>
+
 </div>
 
     </body>

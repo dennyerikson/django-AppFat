@@ -5,16 +5,16 @@
 
 <BR>
 <div align="center">
-  <img src="{% static "blog/img/convenios.png" %}" width="300">
+  <img src="{% static "blog/img/CONVENIOS.png" %}" width="300">
 </div>
-<BR>        
-<div class="divtexto">
-        INFORMAÇÕES SOBRE CONVÊNIOS E PARCERIAS.
-</div>
+<BR>
 
+<!-- <div class="divtexto">
+  INFORMAÇÕES SOBRE CONVÊNIOS E PARCERIAS.
+</div> -->
   
 <!-- inicio laço -->
-{% for conv in convenio %}
+<!-- {% for conv in convenio %}
 <BR>
 <table class="tabledados">
   <tr>
@@ -26,9 +26,76 @@
       <td class="">{{ conv.conv_info}}</td>
   </tr>
 </table>
-{% endfor %}
+{% endfor %} -->
+<!-- fim laço -->
+
+
+        
+<div class="divtexto"><b>
+    INFORMAÇÕES SOBRE DATAS DE PROVAS. 
+</b>  
+</div>
+<div class="descricao">
+  <p>* B1 - Provas de Primeiro Bimestre</p>
+  <p>* B2 - Provas de Segundo Bimestre</p>
+</div>
+<br>
+<table class="tabledados">
+    <tr>
+      <td class="beck bb" colspan="3"><B>B2 - Python 3</B></td>
+    </tr>
+    <tr>
+      <td class="tamanho bb"><b>DATA</b></td>
+      <!-- <td class="bb">-</td> -->
+      <td class="bb">Quarta 07/11/18</td>
+    </tr>
+    <tr>
+        <td class="tamanho bb"><b>SALA</b></td>
+      <!-- <td class="bb">-</td> -->
+      <td class="bb">59</td>
+    </tr>
+      <tr><td class="bb" colspan="3"></td></tr>
+
+      <tr>
+        <td class="beck bb" colspan="3"><B>B2 - Django</B></td>
+      </tr>
+      <tr>
+        <td class="tamanho bb"><b>DATA</b></td>
+        <!-- <td class="bb">-</td> -->
+        <td class="bb">Quarta 09/11/18</td>
+      </tr>
+      <tr>
+          <td class="tamanho bb"><b>SALA</b></td>
+        <!-- <td class="bb">-</td> -->
+        <td class="bb">30</td>
+      </tr>
+        <tr><td class="bb" colspan="3"></td></tr>
+</table>
+
+
+
+<!-- inicio laço -->
+<!-- {%for prof in curso %} -->
+<tr><td class="bb" colspan="3"></td></tr>
+<tr>
+  <td class="tamanho bb"><b>DATA</b></td>
+  <td class="bb">-</td>
+  <td class="bb">Quarta 07/11/18</td>
+</tr>
+<tr>
+    <td class="tamanho bb"><b>SALA</b></td>
+  <td class="bb">-</td>
+  <td class="bb">59</td>
+</tr>
+<tr>
+  <td class="tamanho bb"><b>DISCIPLINA</b></td>
+  <td class="bb">-</td>
+  <td class="bb">Python 3</td>
+</tr>
+  <tr><td class="bb" colspan="3"></td></tr>
+<!-- {% endfor %} -->
 <!-- fim laço -->
 
 
 
-    {% endblock %}
+{% endblock %}
