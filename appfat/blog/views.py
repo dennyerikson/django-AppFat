@@ -176,8 +176,10 @@ def conecta(request):
 """ CONVENIO """
 @login_required
 def convenio(request):
-    convenio = Convenio.objects.filter()
-    return render(request, 'blog/convenio.html', {'convenio':convenio})
+    aluno = Aluno.objects.get(alu_cpf=request.user) #dados aluno
+    provas = Provas.objects.filter(pro_curso='4')
+    # provas = Provas.objects.filter(pro_curso=aluno.alu_id_cur)
+    return render(request, 'blog/convenio.html', {'provas':provas})
 
 """ INFORMAÇÃO """
 @login_required

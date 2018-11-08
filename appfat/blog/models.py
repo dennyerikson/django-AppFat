@@ -225,4 +225,12 @@ class InfoModal(models.Model):
     title8 = models.CharField(max_length=30)
     title9 = models.CharField(max_length=30)
     title10 = models.CharField(max_length=30)# Title dedicado a pesquisa
+
+class Provas(models.Model):
+    pro_curso = models.CharField(max_length=2)    
+    pro_disciplina = models.CharField(max_length=150)
+    pro_avaliacao = models.CharField(max_length=30)
+    pro_professor = models.CharField(max_length=30)    
+    pro_serie = models.CharField(max_length=30)
+    pro_data = models.CharField(max_length=30)
         

@@ -3,33 +3,38 @@
 {% block title %}Convênios{% endblock %}
 {% block content %}
 
+<head>
+  <style>
+    #tdstyle{
+      text-align: center;
+      padding: 0 5px 0 10px;
+      /* background-color: cadetblue; */
+      width: 10px;
+
+    }
+
+     #tdstyle2{
+      text-align: left;
+      padding: 0 1px 0 1px;
+      /* background-color: red; */
+      width: auto;
+
+    }
+    #tdstyle3{
+      text-align: center;
+      padding: 0 1px 0 1px;
+      /* background-color: yellow; */
+      width: auto;
+    
+    }
+  </style>
+</head>
+
 <BR>
 <div align="center">
-  <img src="{% static "blog/img/CONVENIOS.png" %}" width="300">
+  <img src="{% static "blog/img/PROVAS.png" %}" width="300">
 </div>
 <BR>
-
-<!-- <div class="divtexto">
-  INFORMAÇÕES SOBRE CONVÊNIOS E PARCERIAS.
-</div> -->
-  
-<!-- inicio laço -->
-<!-- {% for conv in convenio %}
-<BR>
-<table class="tabledados">
-  <tr>
-      <td class="beck bb" colspan="3"><B>INFORMAÇÃO</B></td>
-  </tr>
-  <tr>
-      <td class="tamanho"><b>{{conv.conv_title}}</b></td>
-    <td class="">-</td>
-      <td class="">{{ conv.conv_info}}</td>
-  </tr>
-</table>
-{% endfor %} -->
-<!-- fim laço -->
-
-
         
 <div class="divtexto"><b>
     INFORMAÇÕES SOBRE DATAS DE PROVAS. 
@@ -40,62 +45,31 @@
   <p>* B2 - Provas de Segundo Bimestre</p>
 </div>
 <br>
-<table class="tabledados">
-    <tr>
-      <td class="beck bb" colspan="3"><B>B2 - Python 3</B></td>
-    </tr>
-    <tr>
-      <td class="tamanho bb"><b>DATA</b></td>
-      <!-- <td class="bb">-</td> -->
-      <td class="bb">Quarta 07/11/18</td>
-    </tr>
-    <tr>
-        <td class="tamanho bb"><b>SALA</b></td>
-      <!-- <td class="bb">-</td> -->
-      <td class="bb">59</td>
-    </tr>
-      <tr><td class="bb" colspan="3"></td></tr>
-
-      <tr>
-        <td class="beck bb" colspan="3"><B>B2 - Django</B></td>
-      </tr>
-      <tr>
-        <td class="tamanho bb"><b>DATA</b></td>
-        <!-- <td class="bb">-</td> -->
-        <td class="bb">Quarta 09/11/18</td>
-      </tr>
-      <tr>
-          <td class="tamanho bb"><b>SALA</b></td>
-        <!-- <td class="bb">-</td> -->
-        <td class="bb">30</td>
-      </tr>
-        <tr><td class="bb" colspan="3"></td></tr>
-</table>
-
-
 
 <!-- inicio laço -->
-<!-- {%for prof in curso %} -->
-<tr><td class="bb" colspan="3"></td></tr>
-<tr>
-  <td class="tamanho bb"><b>DATA</b></td>
-  <td class="bb">-</td>
-  <td class="bb">Quarta 07/11/18</td>
-</tr>
-<tr>
-    <td class="tamanho bb"><b>SALA</b></td>
-  <td class="bb">-</td>
-  <td class="bb">59</td>
-</tr>
-<tr>
-  <td class="tamanho bb"><b>DISCIPLINA</b></td>
-  <td class="bb">-</td>
-  <td class="bb">Python 3</td>
-</tr>
-  <tr><td class="bb" colspan="3"></td></tr>
-<!-- {% endfor %} -->
+{% for prova in provas %}
+  <!-- <br> -->
+  <table class="tabledados">    
+      <tr>
+        <td id="title_table" class="bb" colspan="4"><B>{{ prova.pro_disciplina }}</B></td>
+      </tr>
+      <tr>
+        <td id="tdstyle" class=" bb"><b>DATA </b></td>
+        <td id="tdstyle2" class=" bb">{{ prova.pro_data }}</td>
+
+        <td id="tdstyle" class=" bb"><b>SÉRIE</b></td>
+        <td id="tdstyle2" class=" bb">{{ prova.pro_serie }}</td>
+      </tr>
+      <tr>
+        <td id="tdstyle" class="tamanho bb"><b>PROFESSOR</b></td>
+        <td id="tdstyle3" colspan="3" class="bb">{{ prova.pro_professor }}</td>
+      </tr>
+      <tr>
+          <td id="tdstyle" class="tamanho"><b>MODELO</b></td>
+        <td id="tdstyle3" colspan="3" class="">{{ prova.pro_avaliacao}}</td>
+      </tr>
+  </table>
+{% endfor %}
 <!-- fim laço -->
-
-
 
 {% endblock %}
