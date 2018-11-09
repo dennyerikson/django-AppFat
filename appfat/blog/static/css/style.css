@@ -88,7 +88,7 @@ textomenu:hover{color :rgba(255, 254, 254, 0.726);}
     border-radius: 10px 0px 25px 0px;
     border-spacing:0px;
     border-style:solid;
-    border-color:rgb(39,39,39);
+    border-color:rgba(39, 39, 39, 0.699);
     border-width:1px;
     margin-top: 7px;
     width: 100%;
